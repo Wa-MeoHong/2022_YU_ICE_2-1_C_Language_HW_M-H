@@ -2,22 +2,22 @@
 
 int main(void)
 {
-	FILE* fout = NULL;							// ÆÄÀÏÆ÷ÀÎÅÍ fout
-	int* array = NULL;							// Bigarray»ı¼ºÇÒ ¹è¿­ 
-	int SIZE = 0;								// ¹è¿­Å©±â SIZE
+	FILE* fout = NULL;							// íŒŒì¼í¬ì¸í„° fout
+	int* array = NULL;							// Bigarrayìƒì„±í•  ë°°ì—´ 
+	int SIZE = 0;								// ë°°ì—´í¬ê¸° SIZE
 
-	if ((fout = fopen(OUT_DATA, "w")) == NULL)	// ¾²±â¸ğµå·Î ÆÄÀÏ ¿­±â, ¿­Áö ¸øÇÏ¸é ±×´ë·Î Á¾·á
+	if ((fout = fopen(OUT_DATA, "w")) == NULL)			// ì“°ê¸°ëª¨ë“œë¡œ íŒŒì¼ ì—´ê¸°, ì—´ì§€ ëª»í•˜ë©´ ê·¸ëŒ€ë¡œ ì¢…ë£Œ
 	{
 		printf("Error in creation of %s !! \n", OUT_DATA);
 		exit(-1);
 	}
 
-	printf("Input size of big array : ");				// »çÀÌÁî ÀÔ·Â 
+	printf("Input size of big array : ");				// ì‚¬ì´ì¦ˆ ì…ë ¥ 
 	scanf("%d", &SIZE);
-	array = (int*)calloc(SIZE, sizeof(int));			// µ¿ÀûÇÒ´ç
+	array = (int*)calloc(SIZE, sizeof(int));			// ë™ì í• ë‹¹
 
-	genBigRandArray(array, SIZE);						// ³­¼ö ¹ß»ı ÈÄ ¹è¿­¿¡ ÀúÀå
-	printBigarraySample(array, SIZE, LINE_SIZE, NUM_OF_LINES);			// Ãâ·Â ÇÔ¼ö
-	fprintBigarraySample(fout, array, SIZE, LINE_SIZE, NUM_OF_LINES);	// ÆÄÀÏ¿¡ Ãâ·ÂÇÏ´Â ÇÔ¼ö
-	free(array);								// µ¿ÀûÇÒ´çÇÑ array ÇØÁ¦
+	genBigRandArray(array, SIZE);						// ë‚œìˆ˜ ë°œìƒ í›„ ë°°ì—´ì— ì €ì¥
+	printBigarraySample(array, SIZE, LINE_SIZE, NUM_OF_LINES);			// ì¶œë ¥ í•¨ìˆ˜
+	fprintBigarraySample(fout, array, SIZE, LINE_SIZE, NUM_OF_LINES);	// íŒŒì¼ì— ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
+	free(array);								// ë™ì í• ë‹¹í•œ array í•´ì œ
 }
