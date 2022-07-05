@@ -2,24 +2,24 @@
 #include <windows.h>
 #include <conio.h>
 
-int main(void)
+int main(void) 
 {
-	int choose; // ¼±ÅÃÁö º¯¼ö
-	int width, length; // °¡·Î, ¼¼·Î
-	int base; // ¹Øº¯(³ôÀÌµµ °°ÀÌ¾¸)
+	int choose; // ì„ íƒì§€ ë³€ìˆ˜
+	int width, length; // ê°€ë¡œ, ì„¸ë¡œ
+	int base; // ë°‘ë³€(ë†’ì´ë„ ê°™ì´ì”€)
 
 	while (1)
 	{
-		printf("¸¸µé°í ½ÍÀº µµÇüÀ» ¼±ÅÃÇÏ½Ã¿À. (1 : rectangle, 2 : right triangle \
-3 : reverse triangle, 4 : diamond, 0 : END) : ");	// ¼±ÅÃÁö 
-		scanf("%d", &choose);						//choose º¯¼ö·Î °ª ÀÔ·Â
+		printf("ë§Œë“¤ê³  ì‹¶ì€ ë„í˜•ì„ ì„ íƒí•˜ì‹œì˜¤. (1 : rectangle, 2 : right triangle \
+3 : reverse triangle, 4 : diamond, 0 : END) : ");	// ì„ íƒì§€ 
+		scanf("%d", &choose);						//choose ë³€ìˆ˜ë¡œ ê°’ ì…ë ¥
 
-		if (choose == 0)							// 0ÀÏ¶§ Á¾·á
+		if (choose == 0)							// 0ì¼ë•Œ ì¢…ë£Œ
 			break;
 
-		switch (choose)								// ¼±ÅÃ¿¡ µû¶ó 
+		switch (choose)								// ì„ íƒì— ë”°ë¼ 
 		{
-			case 1:									// Á÷»ç°¢Çü ¸¸µé±â
+			case 1:									// ì§ì‚¬ê°í˜• ë§Œë“¤ê¸°
 			{	
 				printf("Rectangle / width, length : ");
 				scanf("%d %d", &width, &length);
@@ -27,7 +27,7 @@ int main(void)
 				break; 
 			}
 
-			case 2:									// Á÷°¢»ï°¢Çü ¸¸µé±â
+			case 2:									// ì§ê°ì‚¼ê°í˜• ë§Œë“¤ê¸°
 			{	
 				printf("Right_Triangle / base : ");
 				scanf("%d", &base);
@@ -35,7 +35,7 @@ int main(void)
 				break; 
 			}
 
-			case 3:									//¿ª Á÷°¢»ï°¢Çü ¸¸µé±â
+			case 3:									//ì—­ ì§ê°ì‚¼ê°í˜• ë§Œë“¤ê¸°
 			{	
 				printf("Reverse Right_Triangle / base : ");
 				scanf("%d", &base);
@@ -43,7 +43,7 @@ int main(void)
 				break;
 			}
 
-			case 4:									//´ÙÀÌ¾Æ¸óµå ¸¸µé±â
+			case 4:									//ë‹¤ì´ì•„ëª¬ë“œ ë§Œë“¤ê¸°
 			{
 				printf("Diamond / width : ");
 				scanf("%d", &width);
@@ -51,7 +51,7 @@ int main(void)
 				break; 
 			}
 
-			default:								//´Ù¸¥°Å ÀÔ·Â½Ã ´Ù½ÃÀÔ·ÂÇÏµµ·Ï ÇÏ°ÔÇÔ
+			default:								//ë‹¤ë¥¸ê±° ì…ë ¥ì‹œ ë‹¤ì‹œì…ë ¥í•˜ë„ë¡ í•˜ê²Œí•¨
 			{	
 				printf("wrong choose! input again!\n");
 				_getch(); 
