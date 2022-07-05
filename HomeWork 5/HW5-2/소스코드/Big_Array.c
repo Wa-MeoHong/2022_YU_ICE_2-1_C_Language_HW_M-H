@@ -1,59 +1,59 @@
 #include "Big_Array.h"
 
-void genBigRandArray(int* array, int SIZE)				// ³­¼ö »ı¼º ÇÔ¼ö
+void genBigRandArray(int* array, int SIZE)					// ë‚œìˆ˜ ìƒì„± í•¨ìˆ˜
 {
-	char* flag = NULL;									// Áßº¹µÇ´Â ³­¼ö °ªÀ» È®ÀÎÇÏ±â À§ÇØ ¸¸µé¾îµÒ
-	int count = 0;										// while ÃÊ±â½Ä
-	unsigned int bigRand = 0;							// ÀÓ½ÃÀúÀå °ø°£
+	char* flag = NULL;									// ì¤‘ë³µë˜ëŠ” ë‚œìˆ˜ ê°’ì„ í™•ì¸í•˜ê¸° ìœ„í•´ ë§Œë“¤ì–´ë‘ 
+	int count = 0;										// while ì´ˆê¸°ì‹
+	unsigned int bigRand = 0;							// ì„ì‹œì €ì¥ ê³µê°„
 
-	flag = (char*)calloc(SIZE, sizeof(char));			// ¹ß»ı½ÃÅ³ °³¼ö¸¸Å­ µ¿Àû¸Ş¸ğ¸® ÇÒ´ç, ½ÇÆĞ½Ã ±×´ë·Î Á¾·á
+	flag = (char*)calloc(SIZE, sizeof(char));				// ë°œìƒì‹œí‚¬ ê°œìˆ˜ë§Œí¼ ë™ì ë©”ëª¨ë¦¬ í• ë‹¹, ì‹¤íŒ¨ì‹œ ê·¸ëŒ€ë¡œ ì¢…ë£Œ
 	if (flag == NULL)
 	{
 		printf("Error in Dynamic memory allocation for character array of size (%d)\n ", SIZE);
 		exit(-1);
 	} 
 
-	while (count < SIZE)								// ¹ß»ı½ÃÅ³ °³¼ö¸¸Å­
+	while (count < SIZE)								// ë°œìƒì‹œí‚¬ ê°œìˆ˜ë§Œí¼
 	{
-		bigRand = (((unsigned int)rand() << 15) | rand()) % SIZE; //SIZEº¸´Ù ÀÛ¾Æ¾ßÇÏ´Â ÀÌÀ¯ : ±×·¡¾ß Áßº¹°ªÀ» Ã£À» ¹è¿­¿¡ °ªÀ» ¸ÂÃç ³ÖÀ» ¼ö ÀÖÀ½..
+		bigRand = (((unsigned int)rand() << 15) | rand()) % SIZE; //SIZEë³´ë‹¤ ì‘ì•„ì•¼í•˜ëŠ” ì´ìœ  : ê·¸ë˜ì•¼ ì¤‘ë³µê°’ì„ ì°¾ì„ ë°°ì—´ì— ê°’ì„ ë§ì¶° ë„£ì„ ìˆ˜ ìˆìŒ..
 
-		if (flag[bigRand] == 1)							//¸¸¾à bigRand°¡ ÀÌ¹Ì ³ª¿Â ³­¼ö¶ó¸é ´Ù½Ã »ı¼º
+		if (flag[bigRand] == 1)							//ë§Œì•½ bigRandê°€ ì´ë¯¸ ë‚˜ì˜¨ ë‚œìˆ˜ë¼ë©´ ë‹¤ì‹œ ìƒì„±
 		{
 			continue;
 		}
 		else
 		{
-			flag[bigRand] = 1;							// ¾Æ´Ï¸é Ã¼Å©ÇØÁÖ°í
-			array[count++] = bigRand;					// array¿¡ °ªÀ» ´ëÀÔÇØÁØÈÄ, count¸¦ ++ÇÑ´Ù.
+			flag[bigRand] = 1;							// ì•„ë‹ˆë©´ ì²´í¬í•´ì£¼ê³ 
+			array[count++] = bigRand;					// arrayì— ê°’ì„ ëŒ€ì…í•´ì¤€í›„, countë¥¼ ++í•œë‹¤.
 		}
 	}
-	free(flag);											// ´Ù³¡³ª¸é µ¿Àû¸Ş¸ğ¸® ¹İÈ¯ÇØÁÜ ( Áßº¹ ¼ö¸¦ Ã¼Å©ÇÏ±â À§ÇÑ µ¿Àû ¹è¿­ ) 
-	suffleBigArray(array, SIZE);						// ¼¯±â
+	free(flag);											// ë‹¤ëë‚˜ë©´ ë™ì ë©”ëª¨ë¦¬ ë°˜í™˜í•´ì¤Œ ( ì¤‘ë³µ ìˆ˜ë¥¼ ì²´í¬í•˜ê¸° ìœ„í•œ ë™ì  ë°°ì—´ ) 
+	suffleBigArray(array, SIZE);						// ì„ê¸°
 }
 
-void suffleBigArray(int* array, int SIZE)				// ³­¼ö ¼ø¼­ º¯°æ(¼ÅÇÃ)
+void suffleBigArray(int* array, int SIZE)				// ë‚œìˆ˜ ìˆœì„œ ë³€ê²½(ì…”í”Œ)
 {
-	int i1, i2, d, k = 0;								// ¼ø¼­¸¦ º¯°æÇÒ ÀÎµ¦½º i1, i2, ÀÓ½Ãº¯¼ö d, while ÃÊ±â½Ä k
+	int i1, i2, d, k = 0;								// ìˆœì„œë¥¼ ë³€ê²½í•  ì¸ë±ìŠ¤ i1, i2, ì„ì‹œë³€ìˆ˜ d, while ì´ˆê¸°ì‹ k
 
-	while (k < SIZE)									// k = SIZE°¡ µÇ±â ±îÁö
+	while (k < SIZE)									// k = SIZEê°€ ë˜ê¸° ê¹Œì§€
 	{
-		i1 = (((unsigned int)rand() << 15) | rand()) % SIZE; // ¼ø¼­º¯°æÇÒ 1¹ø ³­¼ö 
-		i2 = (((unsigned int)rand() << 15) | rand()) % SIZE; // 2¹ø ³­¼ö
+		i1 = (((unsigned int)rand() << 15) | rand()) % SIZE; // ìˆœì„œë³€ê²½í•  1ë²ˆ ë‚œìˆ˜ 
+		i2 = (((unsigned int)rand() << 15) | rand()) % SIZE; // 2ë²ˆ ë‚œìˆ˜
 
-		// ½º¿ÍÇÎ ( À§Ä¡ ¹Ù²Ù±â )
-		d = array[i1];									// ¸ÕÀú ÀÓ½ÃÀúÀå¿ë º¯¼ö d¿¡ ÀÎµ¦½º i1¹ø¿¡ ´ã±ä ¼ö¸¦ ÀúÀå
-		array[i1] = array[i2];							// i2¹ø¿¡ ´ã±ä ¼ö¸¦ i1¹ø¿¡ ÀúÀå
-		array[i2] = d;									// i1ÀÇ ³»¿ëÀ» ¿Å°Ü´ãÀº d¸¦ i2·Î ¿Å±è
-		k++;											// kÁõ°¡
+		// ìŠ¤ì™€í•‘ ( ìœ„ì¹˜ ë°”ê¾¸ê¸° )
+		d = array[i1];									// ë¨¼ì € ì„ì‹œì €ì¥ìš© ë³€ìˆ˜ dì— ì¸ë±ìŠ¤ i1ë²ˆì— ë‹´ê¸´ ìˆ˜ë¥¼ ì €ì¥
+		array[i1] = array[i2];							// i2ë²ˆì— ë‹´ê¸´ ìˆ˜ë¥¼ i1ë²ˆì— ì €ì¥
+		array[i2] = d;									// i1ì˜ ë‚´ìš©ì„ ì˜®ê²¨ë‹´ì€ dë¥¼ i2ë¡œ ì˜®ê¹€
+		k++;											// kì¦ê°€
 	}
 }
 
 
-void printBigarraySample(int* array, int SIZE, int line_size, int num_sample_lines) //Å« ¹è¿­ Ãâ·Â ÇÔ¼ö
+void printBigarraySample(int* array, int SIZE, int line_size, int num_sample_lines) //í° ë°°ì—´ ì¶œë ¥ í•¨ìˆ˜
 {
 	int count = 0;
 	printf("Generate Big array(SIZE of % d) : \n", SIZE);
-	for (int i = 0; i < num_sample_lines; i++)				 //Ã³À½ 30°³ Ãâ·Â
+	for (int i = 0; i < num_sample_lines; i++)				 //ì²˜ìŒ 30ê°œ ì¶œë ¥
 	{
 		for (int j = 0; j < line_size; j++)
 		{
@@ -66,9 +66,9 @@ void printBigarraySample(int* array, int SIZE, int line_size, int num_sample_lin
 	}
 
 	printf("\n . . . . . .\n");
-	count = SIZE - (line_size * num_sample_lines);			// count(¹è¿­ÀÎµ¦½º ¹øÈ£)¸¦ µÚ¿¡¼­ 30¹øÂ° ¹øÈ£·Î ¹Ù²Ù±â
+	count = SIZE - (line_size * num_sample_lines);			// count(ë°°ì—´ì¸ë±ìŠ¤ ë²ˆí˜¸)ë¥¼ ë’¤ì—ì„œ 30ë²ˆì§¸ ë²ˆí˜¸ë¡œ ë°”ê¾¸ê¸°
 
-	for (int i = 0; i < num_sample_lines; i++)				// ¸¶Áö¸· 30°³ Ãâ·Â
+	for (int i = 0; i < num_sample_lines; i++)				// ë§ˆì§€ë§‰ 30ê°œ ì¶œë ¥
 	{
 		for (int j = 0; j < line_size; j++)
 		{
@@ -80,12 +80,12 @@ void printBigarraySample(int* array, int SIZE, int line_size, int num_sample_lin
 	printf("\n");
 }
 
-void fprintBigarraySample(FILE* fout, int* array, int SIZE, int line_size, int num_sample_lines) // ÆÄÀÏ¿ë Å«ÇÔ¼ö Ãâ·Â ÇÔ¼ö
+void fprintBigarraySample(FILE* fout, int* array, int SIZE, int line_size, int num_sample_lines) // íŒŒì¼ìš© í°í•¨ìˆ˜ ì¶œë ¥ í•¨ìˆ˜
 { 
 	int count = 0;
 
 	fprintf(fout, "Generate Big array (SIZE of %d) : \n", SIZE);
-	for (int i = 0; i < num_sample_lines; i++)				// ÆÄÀÏ¿¡´Ù°¡ ÀÔ·Â (¸ÇÃ³À½ ¹è¿­¿ø¼Ò 30°³ Ãâ·Â)
+	for (int i = 0; i < num_sample_lines; i++)				// íŒŒì¼ì—ë‹¤ê°€ ì…ë ¥ (ë§¨ì²˜ìŒ ë°°ì—´ì›ì†Œ 30ê°œ ì¶œë ¥)
 	{
 		for (int j = 0; j < line_size; j++)
 		{
@@ -98,9 +98,9 @@ void fprintBigarraySample(FILE* fout, int* array, int SIZE, int line_size, int n
 	}
 
 	fprintf(fout, "\n . . . . . .\n");
-	count = SIZE - (line_size * num_sample_lines);			// count(¹è¿­ÀÎµ¦½º ¹øÈ£)¸¦ µÚ¿¡¼­ 30¹øÂ° ¹øÈ£·Î ¹Ù²Ù±â
+	count = SIZE - (line_size * num_sample_lines);			// count(ë°°ì—´ì¸ë±ìŠ¤ ë²ˆí˜¸)ë¥¼ ë’¤ì—ì„œ 30ë²ˆì§¸ ë²ˆí˜¸ë¡œ ë°”ê¾¸ê¸°
 
-	for (int i = 0; i < num_sample_lines; i++)				// ÆÄÀÏ¿¡´Ù°¡ ÀÔ·Â (¸ÇµÚÀÇ ¹è¿­¿ø¼Ò 30°³ Ãâ·Â)
+	for (int i = 0; i < num_sample_lines; i++)				// íŒŒì¼ì—ë‹¤ê°€ ì…ë ¥ (ë§¨ë’¤ì˜ ë°°ì—´ì›ì†Œ 30ê°œ ì¶œë ¥)
 	{
 		for (int j = 0; j < line_size; j++)
 		{
