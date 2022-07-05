@@ -1,6 +1,6 @@
 #include "Matrix.h"
 #include "Mtrx_Print.h"
-
+ 
 int main(void)
 {
 	FILE* fin;
@@ -10,22 +10,22 @@ int main(void)
 	int b_row_SIZE = 0, b_col_SIZE = 0;
 	int c_row_SIZE = 0, c_col_SIZE = 0;
 
-	if ((fin = fopen(MtrxDataFile, "r")) == NULL)				// ÆÄÀÏÀ» ÀĞ±â¸ğµå·Î ¿¬´Ù. ½ÇÆĞ½Ã Á¾·á
+	if ((fin = fopen(MtrxDataFile, "r")) == NULL)				// íŒŒì¼ì„ ì½ê¸°ëª¨ë“œë¡œ ì—°ë‹¤. ì‹¤íŒ¨ì‹œ ì¢…ë£Œ
 	{
 		printf("\tError in opening input.txt FILE !!\n\n");
 		exit(-1);
 	}
 
-	//Çà·ÄÀ» µ¿ÀûÇÒ´ç ÇØÁØ ÈÄ, Ãâ·Â ÇØÁÖ´Â ÇÔ¼ö fgetMtrxandprint
+	//í–‰ë ¬ì„ ë™ì í• ë‹¹ í•´ì¤€ í›„, ì¶œë ¥ í•´ì£¼ëŠ” í•¨ìˆ˜ fgetMtrxandprint
 	fgetMtrxandprint(fin, &mA, &a_row_SIZE, &a_col_SIZE, a++);
 	fgetMtrxandprint(fin, &mB, &b_row_SIZE, &b_col_SIZE, a++);
 	fgetMtrxandprint(fin, &mC, &c_row_SIZE, &c_col_SIZE, a++);
 
 	if ((a_row_SIZE != b_row_SIZE) || (a_col_SIZE != b_col_SIZE))
-	{ //¸¸¾à µÑ Áß ÇÏ³ª¶óµµ °°Áö ¾Ê´Ù¸é ( Çà·Ä µ¡¼À, »¬¼ÀÀº µÎ°³ÀÇ Çà,¿­ÀÌ °°¾Æ¾ß ¼º¸³)
+	{ //ë§Œì•½ ë‘˜ ì¤‘ í•˜ë‚˜ë¼ë„ ê°™ì§€ ì•Šë‹¤ë©´ ( í–‰ë ¬ ë§ì…ˆ, ëº„ì…ˆì€ ë‘ê°œì˜ í–‰,ì—´ì´ ê°™ì•„ì•¼ ì„±ë¦½)
 		printf("\tError! row_SIZE and/or col_SIZE aren't equal!!\n ");
 		fclose(fin);
-		return; //ÇÏ´ÂÀÌÀ¯ : Á¾·á°¡ µÇ´õ¶óµµ ´Ù½Ã ¹İº¹¹®À» ÇØ¾ßÇÏ±â ¶§¹®
+		return; //í•˜ëŠ”ì´ìœ  : ì¢…ë£Œê°€ ë˜ë”ë¼ë„ ë‹¤ì‹œ ë°˜ë³µë¬¸ì„ í•´ì•¼í•˜ê¸° ë•Œë¬¸
 	}
 
 	//mD = mA + mB;
@@ -35,7 +35,7 @@ int main(void)
 	//mF = mA * mC;
 	MulMtrxprint(&mA, &mC, &mF, &a_row_SIZE, &c_col_SIZE, c_row_SIZE, a);
 
-	DeleteDoubleMatrix(mA, a_row_SIZE); //µ¿ÀûÇÒ´ç ÇØÁ¦
+	DeleteDoubleMatrix(mA, a_row_SIZE); //ë™ì í• ë‹¹ í•´ì œ
 	DeleteDoubleMatrix(mB, b_row_SIZE);
 	DeleteDoubleMatrix(mC, c_row_SIZE);
 
