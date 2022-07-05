@@ -1,6 +1,6 @@
 #include "Big_Array.h"
 
-void genBigRandArray(int* array, int SIZE)					// 난수 생성 함수
+void genBigRandArray(int* array, int SIZE)	 				// 난수 생성 함수
 {
 	char* flag = NULL;									// 중복되는 난수 값을 확인하기 위해 만들어둠
 	int count = 0;										// while 초기식
