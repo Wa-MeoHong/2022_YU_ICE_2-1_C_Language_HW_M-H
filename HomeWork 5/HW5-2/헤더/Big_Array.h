@@ -1,38 +1,38 @@
 /*
-  ÆÄÀÏ¸í : "HW5-2_21912193_½Å´ëÈ«"
+  íŒŒì¼ëª… : "HW5-2_21912193_ì‹ ëŒ€í™"
 
-  ÇÁ·Î±×·¥ÀÇ ¸ñÀû ¹× ±âº» ±â´É:
-	- ÀüÃ³¸®±â, Çì´õÆÄÀÏÀ» ¸¸µé¾î¼­ mainÇÔ¼ö¿¡ ²ø¾î¼­ ¾²°í, ÆÄÀÏÀ» ÀÛ¼ºÇØ¼­ ÆÄÀÏ¿¡ ÀÔ·ÂÇÏ´Â ÇÁ·Î±×·¥
+  í”„ë¡œê·¸ë¨ì˜ ëª©ì  ë° ê¸°ë³¸ ê¸°ëŠ¥:
+	- ì „ì²˜ë¦¬ê¸°, í—¤ë”íŒŒì¼ì„ ë§Œë“¤ì–´ì„œ mainí•¨ìˆ˜ì— ëŒì–´ì„œ ì“°ê³ , íŒŒì¼ì„ ì‘ì„±í•´ì„œ íŒŒì¼ì— ì…ë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 
-  ÇÁ·Î±×·¥ ÀÛ¼ºÀÚ : ½Å´ëÈ«(2022³â 4¿ù 1ÀÏ)
-  ÃÖÁ¾ Update : Version 1.1.0, 2022³â 7¿ù 6ÀÏ(½Å´ëÈ«)
+  í”„ë¡œê·¸ë¨ ì‘ì„±ì : ì‹ ëŒ€í™(2022ë…„ 4ì›” 1ì¼)
+  ìµœì¢… Update : Version 1.1.0, 2022ë…„ 7ì›” 6ì¼(ì‹ ëŒ€í™)
 ===========================================================================================================
-					ÇÁ·Î±×·¥ ¼öÁ¤/º¸¿Ï ÀÌ·Â
+					í”„ë¡œê·¸ë¨ ìˆ˜ì •/ë³´ì™„ ì´ë ¥
 ===========================================================================================================
-   ¼öÁ¤ÀÚ		   ¼öÁ¤ÀÏ		 ¹öÀü			     ¼öÁ¤/º¸¿Ï³»¿ë
+   ìˆ˜ì •ì		   ìˆ˜ì •ì¼		 ë²„ì „			     ìˆ˜ì •/ë³´ì™„ë‚´ìš©
 -----------------------------------------------------------------------------------------------------------
-   ½Å´ëÈ«		 2022/04/01		v1.0.0		  ÃÖÃÊÀÛ¼º
-   ½Å´ëÈ«		 2022/07/06		v1.1.0		  Àü¹İÀûÀ¸·Î ÄÚµå ÃÖÀûÈ­
+   ì‹ ëŒ€í™		 2022/04/01		v1.0.0		  ìµœì´ˆì‘ì„±
+   ì‹ ëŒ€í™		 2022/07/06		v1.1.0		  ì „ë°˜ì ìœ¼ë¡œ ì½”ë“œ ìµœì í™”
 ===========================================================================================================
 */
 
 #ifndef BIG_ARRAY_H
 #define BIG_ARRAY_H
-#pragma warning(disable: 4996)								// scanf¿À·ù ¾È¶ß°Ô ÇÏ´Â pragmaÁ¤ÀÇ 
+#pragma warning(disable: 4996)						 		// scanfì˜¤ë¥˜ ì•ˆëœ¨ê²Œ í•˜ëŠ” pragmaì •ì˜ 
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>											// ½Ã°£ ³­¼ö »ı¼º ½Ãµå¸¦ À§ÇÑ Çì´õÆÄÀÏ
+#include <time.h>											// ì‹œê°„ ë‚œìˆ˜ ìƒì„± ì‹œë“œë¥¼ ìœ„í•œ í—¤ë”íŒŒì¼
 #include <windows.h>
 
-#define RANDOMIZE() srand((unsigned int)time(NULL))			// ½Ã°£ ³­¼ö ¸ÅÅ©·Î
-#define LINE_SIZE 10										// ÇÑÁÙ´ç Ãâ·ÂÇÏ´Â ¼ıÀÚÀÇ °³¼ö
-#define NUM_OF_LINES 3										// ¸¹Àº ¼ö¸¦ Ãâ·ÂÇÒ ¶§, Ã³À½ XÁÙ, ¸¶Áö¸· XÁÙ¸¸ Ãâ·Â
-#define OUT_DATA "output.txt"								// Ãâ·Â¿ë ÆÄÀÏ ÀÌ¸§ output.txt
+#define RANDOMIZE() srand((unsigned int)time(NULL))			// ì‹œê°„ ë‚œìˆ˜ ë§¤í¬ë¡œ
+#define LINE_SIZE 10										// í•œì¤„ë‹¹ ì¶œë ¥í•˜ëŠ” ìˆ«ìì˜ ê°œìˆ˜
+#define NUM_OF_LINES 3										// ë§ì€ ìˆ˜ë¥¼ ì¶œë ¥í•  ë•Œ, ì²˜ìŒ Xì¤„, ë§ˆì§€ë§‰ Xì¤„ë§Œ ì¶œë ¥
+#define OUT_DATA "output.txt"								// ì¶œë ¥ìš© íŒŒì¼ ì´ë¦„ output.txt
 
-void genBigRandArray(int* array, int SIZE);						// ³­¼ö »ı¼º ÇÔ¼ö
-void suffleBigArray(int* array, int SIZE);						// »ı¼ºµÈ ³­¼ö ¹è¿­À» ¼¯¾îÁÖ´Â ÇÔ¼ö
-void printBigarraySample(int* array, int SIZE, int line_size, int num_sample_lines);	// »ı¼ºµÈ ³­¼ö ¹è¿­À» Ãâ·ÂÇÏ´Â ÇÔ¼ö
-void fprintBigarraySample(FILE* fout, int* array, int SIZE, int line_size, int num_sample_lines);	// ÆÄÀÏ Ãâ·ÂÇÔ¼ö
+void genBigRandArray(int* array, int SIZE);						// ë‚œìˆ˜ ìƒì„± í•¨ìˆ˜
+void suffleBigArray(int* array, int SIZE);						// ìƒì„±ëœ ë‚œìˆ˜ ë°°ì—´ì„ ì„ì–´ì£¼ëŠ” í•¨ìˆ˜
+void printBigarraySample(int* array, int SIZE, int line_size, int num_sample_lines);	// ìƒì„±ëœ ë‚œìˆ˜ ë°°ì—´ì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
+void fprintBigarraySample(FILE* fout, int* array, int SIZE, int line_size, int num_sample_lines);	// íŒŒì¼ ì¶œë ¥í•¨ìˆ˜
 
 #endif // !BIG_ARRAY_H
