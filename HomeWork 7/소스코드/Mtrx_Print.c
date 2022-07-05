@@ -1,37 +1,37 @@
 #include "Mtrx_Print.h"
-
+ 
 void fgetMtrxandprint(FILE* fin, double** mA, int* row_SIZE, int* col_SIZE, char a)
-// ÆÄÀÏ ÀÔ·Â ¹× Ãâ·Â ÇÔ¼ö (main¿¡ ÀÔ·ÂÇÏ´Â°Ô ¸¹¾Æ¼­ ÇÔ¼ö·Î ¸¸µé¾úÀ½)
+// íŒŒì¼ ì…ë ¥ ë° ì¶œë ¥ í•¨ìˆ˜ (mainì— ì…ë ¥í•˜ëŠ”ê²Œ ë§ì•„ì„œ í•¨ìˆ˜ë¡œ ë§Œë“¤ì—ˆìŒ)
 {
 	*mA = fGetMtrx(fin, &(*row_SIZE), &(*col_SIZE));
-	//µ¿ÀûÇÒ´ç ¹× °ª ÀÔ·Â, Æ÷ÀÎÅÍ ¸Å°³º¯¼ö mA°¡ ¾Æ´Ñ ¿ø·¡ º¯¼ö(¸ŞÀÎ¿¡ ÀÖ´Â)¿¡ ÁÖ¼Ò¸¦ ¹İÈ¯
-	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE); //Ãâ·Â 
+	//ë™ì í• ë‹¹ ë° ê°’ ì…ë ¥, í¬ì¸í„° ë§¤ê°œë³€ìˆ˜ mAê°€ ì•„ë‹Œ ì›ë˜ ë³€ìˆ˜(ë©”ì¸ì— ìˆëŠ”)ì— ì£¼ì†Œë¥¼ ë°˜í™˜
+	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE); //ì¶œë ¥ 
 	PrintMtrx(*mA, *row_SIZE, *col_SIZE);	printf("\n");
 }
 
 void AddMtrxprint(double** mA, double** mB, double** mD, int* row_SIZE, int* col_SIZE, char a)
-// Çà·Ä µ¡¼À Ãâ·Â ( À§ÀÇ ÇÔ¼ö¿Í Á¶±İ ´Ù¸¥¸éÀÌ ÀÖ¾î »õ·Î ÀÛ¼º, ¾Æ·¡ ÇÔ¼öµµ µ¿ÀÏ) 
+// í–‰ë ¬ ë§ì…ˆ ì¶œë ¥ ( ìœ„ì˜ í•¨ìˆ˜ì™€ ì¡°ê¸ˆ ë‹¤ë¥¸ë©´ì´ ìˆì–´ ìƒˆë¡œ ì‘ì„±, ì•„ë˜ í•¨ìˆ˜ë„ ë™ì¼) 
 {
-	*mD = AddMtrx(*mA, *mB, *row_SIZE, *col_SIZE);					// Çà·Ä µ¡¼À
-	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE);	//Ãâ·Â
+	*mD = AddMtrx(*mA, *mB, *row_SIZE, *col_SIZE);					// í–‰ë ¬ ë§ì…ˆ
+	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE);	//ì¶œë ¥
 	PrintMtrx(*mD, *row_SIZE, *col_SIZE);	printf("\n");
-	DeleteDoubleMatrix(*mD, *row_SIZE);								// µ¿ÀûÇÒ´ç ÇØÁ¦
+	DeleteDoubleMatrix(*mD, *row_SIZE);								// ë™ì í• ë‹¹ í•´ì œ
 }
 
 void SubMtrxprint(double** mA, double** mB, double** mE, int* row_SIZE, int* col_SIZE, char a)
-// Çà·Ä »¬¼À Ãâ·Â
+// í–‰ë ¬ ëº„ì…ˆ ì¶œë ¥
 {
-	*mE = SubMtrx(*mA, *mB, *row_SIZE, *col_SIZE);					// Çà·Ä »¬¼À
-	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE);	// Ãâ·Â
+	*mE = SubMtrx(*mA, *mB, *row_SIZE, *col_SIZE);					// í–‰ë ¬ ëº„ì…ˆ
+	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE);	// ì¶œë ¥
 	PrintMtrx(*mE, *row_SIZE, *col_SIZE);	printf("\n");
-	DeleteDoubleMatrix(*mE, *row_SIZE);								// µ¿ÀûÇÒ´ç ÇØÁ¦
+	DeleteDoubleMatrix(*mE, *row_SIZE);								// ë™ì í• ë‹¹ í•´ì œ
 }
 
 void MulMtrxprint(double** mA, double** mB, double** mF, int* row_SIZE, int* col_SIZE, int k_SIZE, char a)
-// Çà·Ä °ö¼À (row_size = Çà·Ä FÀÇ ¿­ = Çà·Ä A(°öÇÏ´Â Çà·Ä)ÀÇ ¿­, FÀÇ Çà = Çà·Ä B(°öÇØÁö´Â Çà·Ä)ÀÇ Çà, k_SIZE = ±× µÑÁß °øÅëµÈ ¼ö¸¦ °¡Áø Çà/¿­)
+// í–‰ë ¬ ê³±ì…ˆ (row_size = í–‰ë ¬ Fì˜ ì—´ = í–‰ë ¬ A(ê³±í•˜ëŠ” í–‰ë ¬)ì˜ ì—´, Fì˜ í–‰ = í–‰ë ¬ B(ê³±í•´ì§€ëŠ” í–‰ë ¬)ì˜ í–‰, k_SIZE = ê·¸ ë‘˜ì¤‘ ê³µí†µëœ ìˆ˜ë¥¼ ê°€ì§„ í–‰/ì—´)
 {
-	*mF = MulMtrx(*mA, *mB, *row_SIZE, k_SIZE, *col_SIZE);			// Çà·Ä °ö¼À
-	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE);	// Ãâ·Â
+	*mF = MulMtrx(*mA, *mB, *row_SIZE, k_SIZE, *col_SIZE);			// í–‰ë ¬ ê³±ì…ˆ
+	printf("Mtrx_%c ( %d * %d ) : \n", a, *row_SIZE, *col_SIZE);	// ì¶œë ¥
 	PrintMtrx(*mF, *row_SIZE, *col_SIZE);	printf("\n");
-	DeleteDoubleMatrix(*mF, *row_SIZE);								// µ¿ÀûÇÒ´ç ÇØÁ¦
+	DeleteDoubleMatrix(*mF, *row_SIZE);								// ë™ì í• ë‹¹ í•´ì œ
 }
