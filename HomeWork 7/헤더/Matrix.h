@@ -1,36 +1,36 @@
 /*
-  ÆÄÀÏ¸í : "HW7-2_21912193_½Å´ëÈ«"
+  íŒŒì¼ëª… : "HW7-2_21912193_ì‹ ëŒ€í™" 
 
-  ÇÁ·Î±×·¥ÀÇ ¸ñÀû ¹× ±âº» ±â´É:
-	- ÀÌÂ÷¿ø ¹è¿­À» µ¿ÀûÇÒ´ç ÇÑ ÈÄ, Çà·ÄÀ» ÆÄÀÏ¿¡¼­ ÀĞ¾î¿Í¼­ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+  í”„ë¡œê·¸ë¨ì˜ ëª©ì  ë° ê¸°ë³¸ ê¸°ëŠ¥:
+	- ì´ì°¨ì› ë°°ì—´ì„ ë™ì í• ë‹¹ í•œ í›„, í–‰ë ¬ì„ íŒŒì¼ì—ì„œ ì½ì–´ì™€ì„œ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 
-  ÇÁ·Î±×·¥ ÀÛ¼ºÀÚ : ½Å´ëÈ«(2022³â 4¿ù 17ÀÏ)
-  ÃÖÁ¾ Update : Version 1.1.0, 2022³â 7¿ù 6ÀÏ(½Å´ëÈ«)
+  í”„ë¡œê·¸ë¨ ì‘ì„±ì : ì‹ ëŒ€í™(2022ë…„ 4ì›” 17ì¼)
+  ìµœì¢… Update : Version 1.1.0, 2022ë…„ 7ì›” 6ì¼(ì‹ ëŒ€í™)
 ===========================================================================================================
-					ÇÁ·Î±×·¥ ¼öÁ¤/º¸¿Ï ÀÌ·Â
+					í”„ë¡œê·¸ë¨ ìˆ˜ì •/ë³´ì™„ ì´ë ¥
 ===========================================================================================================
-   ¼öÁ¤ÀÚ		   ¼öÁ¤ÀÏ		 ¹öÀü			     ¼öÁ¤/º¸¿Ï³»¿ë
+   ìˆ˜ì •ì		   ìˆ˜ì •ì¼		 ë²„ì „			     ìˆ˜ì •/ë³´ì™„ë‚´ìš©
 -----------------------------------------------------------------------------------------------------------
-   ½Å´ëÈ«		 2022/04/17		v1.0.0		  ÃÖÃÊÀÛ¼º
-   ½Å´ëÈ«		 2022/07/06		v1.1.0		  Àü¹İÀûÀ¸·Î ÄÚµå ÃÖÀûÈ­
+   ì‹ ëŒ€í™		 2022/04/17		v1.0.0		  ìµœì´ˆì‘ì„±
+   ì‹ ëŒ€í™		 2022/07/06		v1.1.0		  ì „ë°˜ì ìœ¼ë¡œ ì½”ë“œ ìµœì í™”
 ===========================================================================================================
 */
 
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#pragma warning(disable: 4996)						// scanf¿À·ù ¾È¶ß°Ô ÇÏ´Â pragmaÁ¤ÀÇ 
+#pragma warning(disable: 4996)						// scanfì˜¤ë¥˜ ì•ˆëœ¨ê²Œ í•˜ëŠ” pragmaì •ì˜ 
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MtrxDataFile "Mtrx_Data.txt"				// Çà·ÄÀÌ ´ã±ä ÅØ½ºÆ®ÆÄÀÏ
+#define MtrxDataFile "Mtrx_Data.txt"				// í–‰ë ¬ì´ ë‹´ê¸´ í…ìŠ¤íŠ¸íŒŒì¼
 
-double** fGetMtrx(FILE* fin, int* row_SIZE, int* col_SIZE);		// ÆÄÀÏ¿¡¼­ Çà·ÄÀ» ÀĞ¾î¿Í¼­ µ¿Àû»ı¼º
-void DeleteDoubleMatrix(double** dM, int row_SIZE);				// µ¿Àû»ı¼ºµÈ Çà·ÄÀ» ÇØÁ¦
-void PrintMtrx(double** mA, int row_SIZE, int col_SIZE);		// Çà·Ä Ãâ·Â ÇÔ¼ö
-double** AddMtrx(double** mA, double** mB, int row_SIZE, int col_SIZE);		// Çà·Ä µ¡¼À
-double** SubMtrx(double** mA, double** mB, int row_SIZE, int col_SIZE);		// Çà·Ä »¬¼À
-double** MulMtrx(double** mA, double** mC, int row_SIZE, int col_SIZE, int SIZE_k); // Çà·Ä °ö¼À
+double** fGetMtrx(FILE* fin, int* row_SIZE, int* col_SIZE);		// íŒŒì¼ì—ì„œ í–‰ë ¬ì„ ì½ì–´ì™€ì„œ ë™ì ìƒì„±
+void DeleteDoubleMatrix(double** dM, int row_SIZE);				// ë™ì ìƒì„±ëœ í–‰ë ¬ì„ í•´ì œ
+void PrintMtrx(double** mA, int row_SIZE, int col_SIZE);		// í–‰ë ¬ ì¶œë ¥ í•¨ìˆ˜
+double** AddMtrx(double** mA, double** mB, int row_SIZE, int col_SIZE);		// í–‰ë ¬ ë§ì…ˆ
+double** SubMtrx(double** mA, double** mB, int row_SIZE, int col_SIZE);		// í–‰ë ¬ ëº„ì…ˆ
+double** MulMtrx(double** mA, double** mC, int row_SIZE, int col_SIZE, int SIZE_k); // í–‰ë ¬ ê³±ì…ˆ
 
 #endif
