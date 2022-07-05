@@ -16,7 +16,7 @@
 ===========================================================================================================
 */
 
-#pragma warning(disable: 4996)								// scanf오류 안뜨게 하는 pragma정의 
+#pragma warning(disable: 4996)									// scanf오류 안뜨게 하는 pragma정의 
 
 #include <stdio.h>
 #include <windows.h>
