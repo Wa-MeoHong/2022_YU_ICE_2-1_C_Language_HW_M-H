@@ -1,47 +1,47 @@
 #include "Draw_Shape.h"
 #define Space 1
-
-void draw_rectangle(int width, int length)				//Á÷»ç°¢Çü ¸¸µé±â
+ 
+void draw_rectangle(int width, int length)				//ì§ì‚¬ê°í˜• ë§Œë“¤ê¸°
 {
-	for (int i = 0; i < width; i++)						// °¡·Î ¸ğ¼­¸® Ç¥½Ã
+	for (int i = 0; i < width; i++)						// ê°€ë¡œ ëª¨ì„œë¦¬ í‘œì‹œ
 	{
-		printf("* ");									// 1Ä­¾¿ ¶ç¿ì´Â ÀÌÀ¯ : ¼¼·Î ¸ğ¼­¸®¿Í ¸ÂÃß±â À§ÇÔ
+		printf("* ");									// 1ì¹¸ì”© ë„ìš°ëŠ” ì´ìœ  : ì„¸ë¡œ ëª¨ì„œë¦¬ì™€ ë§ì¶”ê¸° ìœ„í•¨
 	}
 	printf("\n");
-	for (int j = Space; j <= length - Space; j++)		// ¼¼·Î¸ğ¼­¸® Ç¥½Ã
+	for (int j = Space; j <= length - Space; j++)		// ì„¸ë¡œëª¨ì„œë¦¬ í‘œì‹œ
 	{
-		printf("* ");									// ¾ç³¡ÂÊ¸¸ º°Ç¥½ÃÇÏ°í ³ª¸ÓÁö´Â Ä­¶ç¿ì±â
-		for (int k = Space; k < width - Space; k++)		// ¾çÂÊ³¡ÀÇ º°Ç¥½Ã»©°í(-2) ÀüºÎ ºóÄ­ 
+		printf("* ");									// ì–‘ëìª½ë§Œ ë³„í‘œì‹œí•˜ê³  ë‚˜ë¨¸ì§€ëŠ” ì¹¸ë„ìš°ê¸°
+		for (int k = Space; k < width - Space; k++)		// ì–‘ìª½ëì˜ ë³„í‘œì‹œë¹¼ê³ (-2) ì „ë¶€ ë¹ˆì¹¸ 
 		{
 			printf("  ");
 		}
 		printf("*\n");
 	}
-	for (int i = 0; i < width; i++)						// ¸Ç ¾Æ·¡ÁÙ Ç¥½Ã
+	for (int i = 0; i < width; i++)						// ë§¨ ì•„ë˜ì¤„ í‘œì‹œ
 		printf("* ");
 	printf("\n");
 }
 
-void draw_right_triangle(int base)						// Á÷°¢»ï°¢Çü ±×¸®±â
+void draw_right_triangle(int base)						// ì§ê°ì‚¼ê°í˜• ê·¸ë¦¬ê¸°
 {
 	printf("\n");
-	for (int i = 0; i < base; i++)						// ¾Æ·¡·Î ³»·Á°¨
+	for (int i = 0; i < base; i++)						// ì•„ë˜ë¡œ ë‚´ë ¤ê°
 	{
-		for (int j = 0; j <= i; j++)					//°¡·Î, ³»·Á°¥¼ö·Ï 1Ä­¾¿ ´Ã¸®¸é¼­ ±×¸²
+		for (int j = 0; j <= i; j++)					//ê°€ë¡œ, ë‚´ë ¤ê°ˆìˆ˜ë¡ 1ì¹¸ì”© ëŠ˜ë¦¬ë©´ì„œ ê·¸ë¦¼
 			printf("*");
 		printf("\n");
 	}
 }
 
-void draw_reverse_right_triangle(int base)				// ´ë°¢¼±¹İÀüµÈ Á÷°¢»ï°¢Çü
+void draw_reverse_right_triangle(int base)				// ëŒ€ê°ì„ ë°˜ì „ëœ ì§ê°ì‚¼ê°í˜•
 {
-	for (int i = 0; i < base; i++)						// ¾Æ·¡·Î ³»·Á°¨
+	for (int i = 0; i < base; i++)						// ì•„ë˜ë¡œ ë‚´ë ¤ê°
 	{
-		for (int j = 0; j < i; j++)						// ¾Æ·¡·Î ³»·Á°¡¸é¼­ ºóÄ­ °¹¼ö¸¦ ´Ã¸²
+		for (int j = 0; j < i; j++)						// ì•„ë˜ë¡œ ë‚´ë ¤ê°€ë©´ì„œ ë¹ˆì¹¸ ê°¯ìˆ˜ë¥¼ ëŠ˜ë¦¼
 		{
 			printf(" ");
 		}
-		for (int k = 0; k < base - i; k++)				//ºóÄ­ ¶ç¿îÈÄ º°Âï±â, ¸ÇÀ§°¡ Á© ±æ°í ³»·Á°¡¸é¼­ Âï´Â°³¼ö Àû¾îÁü
+		for (int k = 0; k < base - i; k++)				//ë¹ˆì¹¸ ë„ìš´í›„ ë³„ì°ê¸°, ë§¨ìœ„ê°€ ì ¤ ê¸¸ê³  ë‚´ë ¤ê°€ë©´ì„œ ì°ëŠ”ê°œìˆ˜ ì ì–´ì§
 		{
 			printf("*"); 
 		}
@@ -50,10 +50,10 @@ void draw_reverse_right_triangle(int base)				// ´ë°¢¼±¹İÀüµÈ Á÷°¢»ï°¢Çü
 }
 
 
-void draw_diamond(int width)							//´Ù¾Æ¾Æ¸óµå(¸¶¸§¸ğ)
+void draw_diamond(int width)							//ë‹¤ì•„ì•„ëª¬ë“œ(ë§ˆë¦„ëª¨)
 {	
-	//À­ºÎºĞ ¸¸µé±â
-	for (int i = 1; i <= (width + Space) / 2; i++)	// À­ºÎºĞÀ» °¡¿îµ¥±îÁö Æ÷ÇÔ½ÃÅ°±â 
+	//ìœ—ë¶€ë¶„ ë§Œë“¤ê¸°
+	for (int i = 1; i <= (width + Space) / 2; i++)	// ìœ—ë¶€ë¶„ì„ ê°€ìš´ë°ê¹Œì§€ í¬í•¨ì‹œí‚¤ê¸° 
 	{	
 		for (int j = (width + Space) / 2; j > i; j--)
 		{
@@ -66,14 +66,14 @@ void draw_diamond(int width)							//´Ù¾Æ¾Æ¸óµå(¸¶¸§¸ğ)
 		printf("\n");
 	}
 
-	//¾Æ·¡ºÎºĞ ¸¸µé±â
-	for (int i = (width - Space) / 2; i >= 0; i--)  //¾Æ·¡ºÎºĞÀº À­ºÎºĞ¿¡¼­ ¸¸µç Á© ±äºÎºĞÀ» Á¦¿ÜÇÏ¹Ç·Î -1°³¸¦ ÇØÁØÈÄ ½ÃÀÛ
+	//ì•„ë˜ë¶€ë¶„ ë§Œë“¤ê¸°
+	for (int i = (width - Space) / 2; i >= 0; i--)  //ì•„ë˜ë¶€ë¶„ì€ ìœ—ë¶€ë¶„ì—ì„œ ë§Œë“  ì ¤ ê¸´ë¶€ë¶„ì„ ì œì™¸í•˜ë¯€ë¡œ -1ê°œë¥¼ í•´ì¤€í›„ ì‹œì‘
 	{
-		for (int j = i; j < (width - Space) / 2 + Space; j++)	//¹ØÀ¸·Î°¥¼ö·Ï ºóÄ­ °¹¼ö ¸¹¾ÆÁü
+		for (int j = i; j < (width - Space) / 2 + Space; j++)	//ë°‘ìœ¼ë¡œê°ˆìˆ˜ë¡ ë¹ˆì¹¸ ê°¯ìˆ˜ ë§ì•„ì§
 		{
 			printf(" ");
 		}
-		for (int k = 0; k < (i * 2 - 1); k++)					//°¥¼ö·Ï º° ÁÙ¾îµê
+		for (int k = 0; k < (i * 2 - 1); k++)					//ê°ˆìˆ˜ë¡ ë³„ ì¤„ì–´ë“¦
 		{
 			printf("*");
 		}
