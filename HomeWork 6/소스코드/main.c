@@ -1,15 +1,15 @@
 /*
-	ÆÄÀÏ¸í : "main.c"
-	ÇÁ·Î±×·¥ÀÇ ¸ñÀû ¹× ±âº» ±â´É:
-		- main.c ÄÚµåÆÄÀÏ
+	íŒŒì¼ëª… : "main.c" 
+	í”„ë¡œê·¸ë¨ì˜ ëª©ì  ë° ê¸°ë³¸ ê¸°ëŠ¥:
+		- main.c ì½”ë“œíŒŒì¼
 */
 
 #include "Big_Array.h"
 #include "Big_Array_Sort.h"
 #include <conio.h>
 
-void Compare_Sorting_Algorithms_SmallIntArray();				// ÀûÀº ¼öÀÇ ³­¼ö ¹è¿­¿¡ °üÇÑ ¸Ş´º
-void Compare_Sorting_Algorithms_BigIntArray();					// Å« ¼öÀÇ ³­¼ö ¹è¿­¿¡ °üÇÑ ¸Ş´º
+void Compare_Sorting_Algorithms_SmallIntArray();				// ì ì€ ìˆ˜ì˜ ë‚œìˆ˜ ë°°ì—´ì— ê´€í•œ ë©”ë‰´
+void Compare_Sorting_Algorithms_BigIntArray();					// í° ìˆ˜ì˜ ë‚œìˆ˜ ë°°ì—´ì— ê´€í•œ ë©”ë‰´
 
 int main(void)
 {
@@ -23,11 +23,11 @@ Small Integer Array\n");
 		printf("	2: Performance Comparison of Selection Sort and Quick Sort for \
 BIG Integer Array\n");
 		printf("Input menu (0 is exit): ");
-		scanf("%d", &menu);										// ¸Ş´º ÀÔ·Â
+		scanf("%d", &menu);										// ë©”ë‰´ ì…ë ¥
 
-		if (menu == 0)											// 0ÀÔ·Â½Ã while Á¾·á
+		if (menu == 0)											// 0ì…ë ¥ì‹œ while ì¢…ë£Œ
 			break;
-		switch (menu)											// ÀÔ·Â¿¡ µû¶ó ½ÇÇà ÇÔ¼ö ´Ş¶óÁø´Ù.
+		switch (menu)											// ì…ë ¥ì— ë”°ë¼ ì‹¤í–‰ í•¨ìˆ˜ ë‹¬ë¼ì§„ë‹¤.
 		{
 		case 1:
 			Compare_Sorting_Algorithms_SmallIntArray();
@@ -49,21 +49,21 @@ BIG Integer Array\n");
 	return 0;
 }
 
-void Compare_Sorting_Algorithms_SmallIntArray() //ÀûÀº ¼öÀÇ ¹è¿­ Á¤·Ä ÃøÁ¤ 
+void Compare_Sorting_Algorithms_SmallIntArray() //ì ì€ ìˆ˜ì˜ ë°°ì—´ ì •ë ¬ ì¸¡ì • 
 {
 	int* array;
 	int size, base = 0;
 	LARGE_INTEGER freq, t_1, t_2;
-	double t_diff;								//½Ã°£ Â÷ °è»ê
+	double t_diff;								//ì‹œê°„ ì°¨ ê³„ì‚°
 
 	double t_Selection, t_Merge, t_Quick;
 
 	QueryPerformanceFrequency(&freq);
-	// CPUÀÇ Å¬·°¼ö¸¦ ÃøÁ¤, Å¬·°¼ö´Â °ÅÀÇ º¯ÇÏ´Â °ªÀÌ ¾Æ´Ï¹Ç·Î ÇÑ¹ø¸¸ ÃøÁ¤
+	// CPUì˜ í´ëŸ­ìˆ˜ë¥¼ ì¸¡ì •, í´ëŸ­ìˆ˜ëŠ” ê±°ì˜ ë³€í•˜ëŠ” ê°’ì´ ì•„ë‹ˆë¯€ë¡œ í•œë²ˆë§Œ ì¸¡ì •
 
 	printf("\nCompare the performance of sorting algorithms for small array\n");
 	printf("====================================================================\n");
-	printf(" Array size	QuickSort[¥ìs]	MergeSort[¥ìs]	SelectionSort[¥ìs]\n");
+	printf(" Array size	QuickSort[Î¼s]	MergeSort[Î¼s]	SelectionSort[Î¼s]\n");
 	printf("--------------------------------------------------------------------\n");
 
 	for (size = 10; size <= 100; size += 10)
@@ -75,47 +75,47 @@ void Compare_Sorting_Algorithms_SmallIntArray() //ÀûÀº ¼öÀÇ ¹è¿­ Á¤·Ä ÃøÁ¤
 			exit(1);
 		}
 		genBigRandArray(array, size, base);
-		// ÃÖÃÊ ³­¼ö »ı¼º
+		// ìµœì´ˆ ë‚œìˆ˜ ìƒì„±
 
-		QueryPerformanceCounter(&t_1);						// ½Ã°£Àç±â(ÇÔ¼ö½ÃÀÛÀü)
-		_QUICKSORT(array, size);							// ÄüÁ¤·Ä
-		QueryPerformanceCounter(&t_2);						// ½Ã°£Àç±â(ÇÔ¼ö³¡)
+		QueryPerformanceCounter(&t_1);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ì‹œì‘ì „)
+		_QUICKSORT(array, size);							// í€µì •ë ¬
+		QueryPerformanceCounter(&t_2);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ë)
 		t_diff = t_2.QuadPart - t_1.QuadPart;
-		t_Quick = ((double)t_diff / (double)freq.QuadPart) * Micro; //¥ìs´ÜÀ§ º¯È¯
+		t_Quick = ((double)t_diff / (double)freq.QuadPart) * Micro; //Î¼së‹¨ìœ„ ë³€í™˜
 		SuffleBigArray(array, size);
-		// ´Ù½Ã ¼¯¾îÁØ´Ù.
+		// ë‹¤ì‹œ ì„ì–´ì¤€ë‹¤.
 
-		QueryPerformanceCounter(&t_1);						// ½Ã°£Àç±â(ÇÔ¼ö½ÃÀÛÀü)
-		mergeSort(array, size);								// º´ÇÕÁ¤·Ä
-		QueryPerformanceCounter(&t_2);						// ½Ã°£Àç±â(ÇÔ¼ö³¡)
+		QueryPerformanceCounter(&t_1);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ì‹œì‘ì „)
+		mergeSort(array, size);								// ë³‘í•©ì •ë ¬
+		QueryPerformanceCounter(&t_2);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ë)
 		t_diff = t_2.QuadPart - t_1.QuadPart;
-		t_Merge = ((double)t_diff / (double)freq.QuadPart) * Micro; //¥ìs´ÜÀ§ º¯È¯
+		t_Merge = ((double)t_diff / (double)freq.QuadPart) * Micro; //Î¼së‹¨ìœ„ ë³€í™˜
 		SuffleBigArray(array, size);
-		// ´Ù½Ã ¼¯¾îÁØ´Ù.
+		// ë‹¤ì‹œ ì„ì–´ì¤€ë‹¤.
 
-		QueryPerformanceCounter(&t_1);						// ½Ã°£Àç±â(ÇÔ¼ö½ÃÀÛÀü)
-		selectionSort(array, size, 0, size - 1);			// ¼±ÅÃÁ¤·Ä
-		QueryPerformanceCounter(&t_2);						// ½Ã°£Àç±â(ÇÔ¼ö³¡)
+		QueryPerformanceCounter(&t_1);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ì‹œì‘ì „)
+		selectionSort(array, size, 0, size - 1);			// ì„ íƒì •ë ¬
+		QueryPerformanceCounter(&t_2);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ë)
 		t_diff = t_2.QuadPart - t_1.QuadPart;
-		t_Selection = ((double)t_diff / (double)freq.QuadPart) * Micro; //¥ìs´ÜÀ§ º¯È¯
+		t_Selection = ((double)t_diff / (double)freq.QuadPart) * Micro; //Î¼së‹¨ìœ„ ë³€í™˜
 		printf("%10d\t%11.2lf\t%11.2lf\t%14.2lf\n", size, t_Quick, t_Merge, t_Selection);
 
 		free(array);
 	}
 }
 
-void Compare_Sorting_Algorithms_BigIntArray()				// ¸¹Àº ³­¼ö Á¤·Ä ½Ã°£ ÃøÁ¤ ÇÔ¼ö
+void Compare_Sorting_Algorithms_BigIntArray()				// ë§ì€ ë‚œìˆ˜ ì •ë ¬ ì‹œê°„ ì¸¡ì • í•¨ìˆ˜
 {
 	int* array;
 	int size, base = 0;
 	int pow_num = 0;
 	LARGE_INTEGER freq, t_1, t_2;
-	double t_diff;											// ½Ã°£ Â÷ °è»ê
+	double t_diff;											// ì‹œê°„ ì°¨ ê³„ì‚°
 
 	double t_Selection, t_Merge, t_Quick;
 
 	QueryPerformanceFrequency(&freq);
-	// CPUÀÇ Å¬·°¼ö¸¦ ÃøÁ¤, Å¬·°¼ö´Â °ÅÀÇ º¯ÇÏ´Â °ªÀÌ ¾Æ´Ï¹Ç·Î ÇÑ¹ø¸¸ ÃøÁ¤
+	// CPUì˜ í´ëŸ­ìˆ˜ë¥¼ ì¸¡ì •, í´ëŸ­ìˆ˜ëŠ” ê±°ì˜ ë³€í•˜ëŠ” ê°’ì´ ì•„ë‹ˆë¯€ë¡œ í•œë²ˆë§Œ ì¸¡ì •
 
 	printf("\nCompare the performance of sorting algorithms for small array\n");
 	printf("====================================================================\n");
@@ -135,31 +135,31 @@ void Compare_Sorting_Algorithms_BigIntArray()				// ¸¹Àº ³­¼ö Á¤·Ä ½Ã°£ ÃøÁ¤ ÇÔ¼
 			exit(1);
 		}
 		genBigRandArray(array, size, base);
-		// ÃÖÃÊ ³­¼ö »ı¼º
+		// ìµœì´ˆ ë‚œìˆ˜ ìƒì„±
 
-		QueryPerformanceCounter(&t_1);						// ½Ã°£Àç±â(ÇÔ¼ö½ÃÀÛÀü)
-		_QUICKSORT(array, size);							// ÄüÁ¤·Ä
-		QueryPerformanceCounter(&t_2);						// ½Ã°£Àç±â(ÇÔ¼ö³¡)
+		QueryPerformanceCounter(&t_1);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ì‹œì‘ì „)
+		_QUICKSORT(array, size);							// í€µì •ë ¬
+		QueryPerformanceCounter(&t_2);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ë)
 		t_diff = t_2.QuadPart - t_1.QuadPart;
-		t_Quick = ((double)t_diff / (double)freq.QuadPart) * Milli; // ms´ÜÀ§ º¯È¯
+		t_Quick = ((double)t_diff / (double)freq.QuadPart) * Milli; // msë‹¨ìœ„ ë³€í™˜
 		SuffleBigArray(array, size);
-		// ´Ù½Ã ¼¯¾îÁØ´Ù.
+		// ë‹¤ì‹œ ì„ì–´ì¤€ë‹¤.
 
-		QueryPerformanceCounter(&t_1);						// ½Ã°£Àç±â(ÇÔ¼ö½ÃÀÛÀü)
-		mergeSort(array, size);								// º´ÇÕÁ¤·Ä
-		QueryPerformanceCounter(&t_2);						// ½Ã°£Àç±â(ÇÔ¼ö³¡)
+		QueryPerformanceCounter(&t_1);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ì‹œì‘ì „)
+		mergeSort(array, size);								// ë³‘í•©ì •ë ¬
+		QueryPerformanceCounter(&t_2);						// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ë)
 		t_diff = t_2.QuadPart - t_1.QuadPart;
-		t_Merge = ((double)t_diff / (double)freq.QuadPart) * Milli; // ms´ÜÀ§ º¯È¯
+		t_Merge = ((double)t_diff / (double)freq.QuadPart) * Milli; // msë‹¨ìœ„ ë³€í™˜
 		SuffleBigArray(array, size);
-		// ´Ù½Ã ¼¯¾îÁØ´Ù.
+		// ë‹¤ì‹œ ì„ì–´ì¤€ë‹¤.
 
-		if (size < SELECTION_SORT_THRESHOLD)				// 5¸¸°³ ÀÌ»óÀÏ¶§´Â ¼±ÅÃÁ¤·ÄÀ» ÇÏÁö ¾Êµµ·Ï if-else ±¸¼º
+		if (size < SELECTION_SORT_THRESHOLD)				// 5ë§Œê°œ ì´ìƒì¼ë•ŒëŠ” ì„ íƒì •ë ¬ì„ í•˜ì§€ ì•Šë„ë¡ if-else êµ¬ì„±
 		{
-			QueryPerformanceCounter(&t_1);					// ½Ã°£Àç±â(ÇÔ¼ö½ÃÀÛÀü)
-			selectionSort(array, size, 0, size - 1);		// ¼±ÅÃÁ¤·Ä
-			QueryPerformanceCounter(&t_2);					// ½Ã°£Àç±â(ÇÔ¼ö³¡)
+			QueryPerformanceCounter(&t_1);					// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ì‹œì‘ì „)
+			selectionSort(array, size, 0, size - 1);		// ì„ íƒì •ë ¬
+			QueryPerformanceCounter(&t_2);					// ì‹œê°„ì¬ê¸°(í•¨ìˆ˜ë)
 			t_diff = t_2.QuadPart - t_1.QuadPart;
-			t_Selection = ((double)t_diff / (double)freq.QuadPart) * Milli; // ms´ÜÀ§ º¯È¯
+			t_Selection = ((double)t_diff / (double)freq.QuadPart) * Milli; // msë‹¨ìœ„ ë³€í™˜
 			printf("%10d\t%11.2lf\t%11.2lf\t%14.2lf\n", size, t_Quick, t_Merge, t_Selection);
 		}
 		else
