@@ -1,15 +1,15 @@
 #ifndef MTRX_GH_H
 #define MTRX_GH_H
-#pragma warning(disable: 4996) // scanf¿À·ù ¾È¶ß°Ô ÇÏ´Â pragmaÁ¤ÀÇ 
-
+#pragma warning(disable: 4996) // scanfì˜¤ë¥˜ ì•ˆëœ¨ê²Œ í•˜ëŠ” pragmaì •ì˜ 
+ 
 #include "Matrix.h"
 #include <stdio.h>
 #include <math.h>
 
-#define Epsilon 0.000001									// Epsilon = ¼Ò¼öÁ¡ Ç¥±â ÀÚ¸®¼ö ¹ØÀ¸·Î ³Ñ¾î°¡´ÂÁö È®ÀÎÇÏ±â À§ÇÔ
+#define Epsilon 0.000001									// Epsilon = ì†Œìˆ˜ì  í‘œê¸° ìë¦¬ìˆ˜ ë°‘ìœ¼ë¡œ ë„˜ì–´ê°€ëŠ”ì§€ í™•ì¸í•˜ê¸° ìœ„í•¨
 
-void pivoting(double** augMtrx, int SIZE_N, int p, int* piv_FOUND);			// Çà ¹Ù²ãÁÖ´Â ÇÔ¼ö pivoting
-void Diagnolize(FILE* fout, double** augMtrx, int SIZE_N, int* solExist);	// °¡¿ì½º-Á¶´ø ¼Ò°Å¹ı °è»ê ÇÔ¼ö
-double** InvMtrx(double** mA, int row_SIZE);								// ¿ªÇà·Ä °è»ê ÇÔ¼ö
+void pivoting(double** augMtrx, int SIZE_N, int p, int* piv_FOUND);			// í–‰ ë°”ê¿”ì£¼ëŠ” í•¨ìˆ˜ pivoting
+void Diagnolize(FILE* fout, double** augMtrx, int SIZE_N, int* solExist);	// ê°€ìš°ìŠ¤-ì¡°ë˜ ì†Œê±°ë²• ê³„ì‚° í•¨ìˆ˜
+double** InvMtrx(double** mA, int row_SIZE);								// ì—­í–‰ë ¬ ê³„ì‚° í•¨ìˆ˜
 
 #endif // !MTRX_GH_H
