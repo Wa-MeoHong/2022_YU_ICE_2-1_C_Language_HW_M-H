@@ -1,5 +1,5 @@
 #include "Matrix.h"
-#include "Mtrx_GJ.h"
+#include "Mtrx_GJ.h" 
 
 #define INPUTDATA "InputData.txt"
 #define OUTPUT "Output.txt"
@@ -16,40 +16,40 @@ int main(void)
 	{
 		printf("Error! it doesn't opening InputData.txt file!!\n");
 		exit(-1);
-	} // ÀÔ·Â ÆÄÀÏ ¿ÀÇÂ
+	} // ì…ë ¥ íŒŒì¼ ì˜¤í”ˆ
 
 	if ((fout = fopen(OUTPUT, "w")) == NULL)
 	{
 		printf("Error! it doesn't opening Output.txt file!!\n");
 		exit(-1);
-	} // Ãâ·Â ÆÄÀÏ ¿ÀÇÂ
+	} // ì¶œë ¥ íŒŒì¼ ì˜¤í”ˆ
 
-	AugMtrx = fGetMtrx(fin, &row_SIZE, &col_SIZE);						// ¼±Çü ¹æÁ¤½Ä ¹è¿­À» ÆÄÀÏ¿¡¼­ °¡Á®¿È
-	PrintMtrx("Augmented Matrix", AugMtrx, row_SIZE, col_SIZE);			// ¼±Çü ¹æÁ¤½Ä ÃÊ±â »ó¼ö°ªµé Ãâ·Â
-	fPrintMtrx(fout, "Augmented Matrix", AugMtrx, row_SIZE, col_SIZE);	// ÆÄÀÏ Ãâ·Â
-	Sol = (double*)calloc(row_SIZE, sizeof(double));					// ÇØÀÇ °³¼ö´Â ¼±Çü¹æÁ¤½ÄÀÇ °³¼ö¿Í °°¾Æ¼­ SIZE_N°³ÀÇ ¹è¿­À» ¸¸µé¾îÁÜ
+	AugMtrx = fGetMtrx(fin, &row_SIZE, &col_SIZE);						// ì„ í˜• ë°©ì •ì‹ ë°°ì—´ì„ íŒŒì¼ì—ì„œ ê°€ì ¸ì˜´
+	PrintMtrx("Augmented Matrix", AugMtrx, row_SIZE, col_SIZE);			// ì„ í˜• ë°©ì •ì‹ ì´ˆê¸° ìƒìˆ˜ê°’ë“¤ ì¶œë ¥
+	fPrintMtrx(fout, "Augmented Matrix", AugMtrx, row_SIZE, col_SIZE);	// íŒŒì¼ ì¶œë ¥
+	Sol = (double*)calloc(row_SIZE, sizeof(double));					// í•´ì˜ ê°œìˆ˜ëŠ” ì„ í˜•ë°©ì •ì‹ì˜ ê°œìˆ˜ì™€ ê°™ì•„ì„œ SIZE_Nê°œì˜ ë°°ì—´ì„ ë§Œë“¤ì–´ì¤Œ
 
-	Diagnolize(fout, AugMtrx, row_SIZE, &solExist);						//°¡¿ì½º-Á¶´ø ¼Ò°Å¹ı °è»ê
+	Diagnolize(fout, AugMtrx, row_SIZE, &solExist);						//ê°€ìš°ìŠ¤-ì¡°ë˜ ì†Œê±°ë²• ê³„ì‚°
 
-	if (solExist)														//ÇØ°¡ ³ª¿ÔÀ½
+	if (solExist)														//í•´ê°€ ë‚˜ì™”ìŒ
 	{
 		fprintf(fout, "The Solution of given Linear System : \n");
 		for (int i = 0; i < row_SIZE; i++)
 		{
-			Sol[i] = AugMtrx[i][row_SIZE];								//°á°ú¸¦ ¹è¿­¿¡ ´ãÀ½
-			fprintf(fout, "x[%d](I%d) = %4.4lf\n", i, i + 1, Sol[i]);	//°á°ú Ãâ·Â
+			Sol[i] = AugMtrx[i][row_SIZE];								//ê²°ê³¼ë¥¼ ë°°ì—´ì— ë‹´ìŒ
+			fprintf(fout, "x[%d](I%d) = %4.4lf\n", i, i + 1, Sol[i]);	//ê²°ê³¼ ì¶œë ¥
 			printf("x[%d](I%d) = % 4.4lf\n", i, i + 1, Sol[i]);
 		}
 		printf("\n");
 	}
-	else																//ÇØ°¡ ¾È³ª¿È (È¤Àº ÇØ°¡ ¾øÀ½)
+	else																//í•´ê°€ ì•ˆë‚˜ì˜´ (í˜¹ì€ í•´ê°€ ì—†ìŒ)
 	{
 		fprintf(fout, "No Solutions! \n");
 		printf("No Solutions! \n");
 	}
 
-	DeleteDynMtrx(AugMtrx, row_SIZE);									//µ¿ÀûÇÒ´ç ÇØÁ¦
+	DeleteDynMtrx(AugMtrx, row_SIZE);									//ë™ì í• ë‹¹ í•´ì œ
 	free(Sol);
-	fclose(fin); fclose(fout);											// ÆÄÀÏ Á¾·á
+	fclose(fin); fclose(fout);											// íŒŒì¼ ì¢…ë£Œ
 	return 0;
 }
