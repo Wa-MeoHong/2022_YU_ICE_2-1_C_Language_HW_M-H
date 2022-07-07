@@ -1,28 +1,28 @@
-#include "hexadecimal.h"
+#include "hexadecimal.h" 
 
 int main(void)
 {
-	char* hexStr;							// ¼ıÀÚ·Î º¯È¯ÇÒ ¹®ÀÚ¿­ ÀÔ·Â
-	char* hexConvertStr;					// º¯È¯µÈ ¼ıÀÚ¸¦ ´Ù½Ã ¹®ÀÚ¿­·Î º¯È¯ÇÏ¿© ´ã¾ÆÁÙ ¹®ÀÚ¿­
-	unsigned int value_int;					// º¯È¯ÇÑ ¼ıÀÚ¸¦ ´ã´Â º¯¼ö
+	char* hexStr;							// ìˆ«ìë¡œ ë³€í™˜í•  ë¬¸ìì—´ ì…ë ¥
+	char* hexConvertStr;					// ë³€í™˜ëœ ìˆ«ìë¥¼ ë‹¤ì‹œ ë¬¸ìì—´ë¡œ ë³€í™˜í•˜ì—¬ ë‹´ì•„ì¤„ ë¬¸ìì—´
+	unsigned int value_int;					// ë³€í™˜í•œ ìˆ«ìë¥¼ ë‹´ëŠ” ë³€ìˆ˜
 	while (1)
 	{
-		hexStr = (char*)calloc(MAX_HEX_STR_LEN + 1, sizeof(char));			// µ¿ÀûÇÒ´ç
-		hexConvertStr = (char*)calloc(MAX_HEX_STR_LEN + 1, sizeof(char));	// µ¿ÀûÇÒ´ç
+		hexStr = (char*)calloc(MAX_HEX_STR_LEN + 1, sizeof(char));			// ë™ì í• ë‹¹
+		hexConvertStr = (char*)calloc(MAX_HEX_STR_LEN + 1, sizeof(char));	// ë™ì í• ë‹¹
 
-		// º¯È¯ÇÒ 16Áø¼ö ¹®ÀÚ¿­ ÀÔ·Â
+		// ë³€í™˜í•  16ì§„ìˆ˜ ë¬¸ìì—´ ì…ë ¥
 		printf("input hexadecimal number : ");								
 		scanf("%s", hexStr);
-		if (strcmp(hexStr, ".") == 0)									// ¸¸¾à '.'À» ÀÔ·ÂÇÏ¸é Á¾·á
+		if (strcmp(hexStr, ".") == 0)									// ë§Œì•½ '.'ì„ ì…ë ¥í•˜ë©´ ì¢…ë£Œ
 			break;
 
-		value_int = atox(hexStr);										// ¼ıÀÚº¯È¯
-		printf("hexadecimal (%s) = %d (decimal)\n", hexStr, value_int); // Ãâ·Â 1
-		xtoa(value_int, hexConvertStr);									// º¯È¯ÇÑ ¼ıÀÚ¸¦ ´Ù½Ã ¹®ÀÚ¿­·Î º¯È¯
+		value_int = atox(hexStr);										// ìˆ«ìë³€í™˜
+		printf("hexadecimal (%s) = %d (decimal)\n", hexStr, value_int); // ì¶œë ¥ 1
+		xtoa(value_int, hexConvertStr);									// ë³€í™˜í•œ ìˆ«ìë¥¼ ë‹¤ì‹œ ë¬¸ìì—´ë¡œ ë³€í™˜
 		printf("hexadecimal (%s) = %d (decimal) = %#0X (hexadecimal) = re-converted hexadecimal string(%s)\n", \
-			hexStr, value_int, value_int, hexConvertStr);				//Ãâ·Â 2
+			hexStr, value_int, value_int, hexConvertStr);				//ì¶œë ¥ 2
 
-		// µ¿ÀûÇÒ´ç ÇØÁ¦
+		// ë™ì í• ë‹¹ í•´ì œ
 		free(hexStr);
 		free(hexConvertStr);
 	}
