@@ -1,41 +1,41 @@
-#include "Cmplx.h"
+#include "Cmplx.h" 
 
-Cmplx InputCmplx()						// º¹¼Ò¼ö ÀÔ·Â ¹× ÃÊ±â°ª ¼³Á¤
+Cmplx InputCmplx()						// ë³µì†Œìˆ˜ ì…ë ¥ ë° ì´ˆê¸°ê°’ ì„¤ì •
 {
 	Cmplx input;						
 
-	// º¹¼Ò¼ö ÀÔ·Â
-	printf("Input Complex Number (rrr.ddd iii.ddd (½Ç¼ö, Çã¼ö)) : ");
+	// ë³µì†Œìˆ˜ ì…ë ¥
+	printf("Input Complex Number (rrr.ddd iii.ddd (ì‹¤ìˆ˜, í—ˆìˆ˜)) : ");
 	scanf("%lf %lf", &input.real, &input.imagin);
 
-	// º¹¼Ò¼öÀÇ Å©±â = ¡î(½Ç¼ö°ª©÷ + Çã¼ö°ª©÷)
+	// ë³µì†Œìˆ˜ì˜ í¬ê¸° = âˆš(ì‹¤ìˆ˜ê°’Â² + í—ˆìˆ˜ê°’Â²)
 	input.magnitude = sqrt(pow(input.real, 2) + pow(input.imagin, 2));
 
-	return input;						// °ª ¹İÈ¯
+	return input;						// ê°’ ë°˜í™˜
 }
 
-void printCmplxNum(const Cmplx c)		// º¹¼Ò¼ö Ãâ·Â ÇÔ¼ö (±âº»Çü), Ãâ·ÂÇü½Ä : "a + jb (magnitude = Å©±â)"
+void printCmplxNum(const Cmplx c)		// ë³µì†Œìˆ˜ ì¶œë ¥ í•¨ìˆ˜ (ê¸°ë³¸í˜•), ì¶œë ¥í˜•ì‹ : "a + jb (magnitude = í¬ê¸°)"
 {
-	// ½Ç¼öºÎºĞ Ãâ·Â
+	// ì‹¤ìˆ˜ë¶€ë¶„ ì¶œë ¥
 	printf("%7.3lf", c.real);						
 
-	// Çã¼ö Ãâ·Â
-	if (c.imagin < 0)								// ¸¸¾à Çã¼öºÎºĞÀÌ À½¼öÀÌ¸é - Ãâ·Â, ¾Æ´Ï¸é + Ãâ·Â
+	// í—ˆìˆ˜ ì¶œë ¥
+	if (c.imagin < 0)								// ë§Œì•½ í—ˆìˆ˜ë¶€ë¶„ì´ ìŒìˆ˜ì´ë©´ - ì¶œë ¥, ì•„ë‹ˆë©´ + ì¶œë ¥
 		printf(" - ");
 	else
 		printf(" + ");
-	printf("j%7.3lf", fabs(c.imagin));				// ÀÌ¹Ì -°¡ ³ª¿ÔÀ¸¹Ç·Î Àı´ñ°ª Ãâ·Â
+	printf("j%7.3lf", fabs(c.imagin));				// ì´ë¯¸ -ê°€ ë‚˜ì™”ìœ¼ë¯€ë¡œ ì ˆëŒ“ê°’ ì¶œë ¥
 
-	// º¹¼Ò¼ö Å©±â Ãâ·Â
+	// ë³µì†Œìˆ˜ í¬ê¸° ì¶œë ¥
 	printf(" (magnitude = %7.3lf)", c.magnitude);	
 }
 
-void printCplxresult(const Cmplx c1, const Cmplx c2, const Cmplx res, Oper num) //º¹¼Ò¼ö ¿¬»ê °á°ú Ãâ·Â
+void printCplxresult(const Cmplx c1, const Cmplx c2, const Cmplx res, Oper num) //ë³µì†Œìˆ˜ ì—°ì‚° ê²°ê³¼ ì¶œë ¥
 {
-	// º¹¼Ò¼ö 1 Ãâ·Â
+	// ë³µì†Œìˆ˜ 1 ì¶œë ¥
 	printCmplxNum(c1);					
 
-	// ¿¬»ê¿¡ µû¶ó switch¹®À» ÅëÇØ ¿¬»ê±âÈ£ Ãâ·Â
+	// ì—°ì‚°ì— ë”°ë¼ switchë¬¸ì„ í†µí•´ ì—°ì‚°ê¸°í˜¸ ì¶œë ¥
 	switch (num)
 	{
 		case ADD:
@@ -56,18 +56,18 @@ void printCplxresult(const Cmplx c1, const Cmplx c2, const Cmplx res, Oper num) 
 		}
 	}
 	
-	// º¹¼Ò¼ö 2 Ãâ·Â
+	// ë³µì†Œìˆ˜ 2 ì¶œë ¥
 	printCmplxNum(c2); printf(" = ");
-	// °á°ú Ãâ·Â
+	// ê²°ê³¼ ì¶œë ¥
 	printCmplxNum(res);
 	printf("\n");
 }
 
-void printCmplxs(const Cmplx* cmplxs, int SIZE)				// º¹¼Ò¼ö ¹è¿­ Ãâ·Â ÇÔ¼ö
+void printCmplxs(const Cmplx* cmplxs, int SIZE)				// ë³µì†Œìˆ˜ ë°°ì—´ ì¶œë ¥ í•¨ìˆ˜
 {
-	for (int i = 0; i < SIZE; i++)							//º¹¼Ò¼ö °³¼ö ¸¸Å­ ¹İº¹
+	for (int i = 0; i < SIZE; i++)							//ë³µì†Œìˆ˜ ê°œìˆ˜ ë§Œí¼ ë°˜ë³µ
 	{
-		//Ãâ·ÂÇü½Ä: "(cmplxs[i] = a + jb (magnitude = Å©±â))"
+		//ì¶œë ¥í˜•ì‹: "(cmplxs[i] = a + jb (magnitude = í¬ê¸°))"
 		printf("(cmplxs[%d] = ", i); printCmplxNum(cmplxs[i]);
 		printf(")\n");										
 	}
@@ -75,57 +75,57 @@ void printCmplxs(const Cmplx* cmplxs, int SIZE)				// º¹¼Ò¼ö ¹è¿­ Ãâ·Â ÇÔ¼ö
 }
 
 // c1 = a + bj, c2 = c + dj
-Cmplx cmplxAdd(const Cmplx c1, const Cmplx c2)				// º¹¼Ò¼ö µ¡¼À
+Cmplx cmplxAdd(const Cmplx c1, const Cmplx c2)				// ë³µì†Œìˆ˜ ë§ì…ˆ
 {
 	Cmplx result;
 
-	result.real = c1.real + c2.real;						// (a + c), ½Ç¼ö³¢¸® °è»ê
-	result.imagin = c1.imagin + c2.imagin;					// (b + d)j, Çã¼ö³¢¸® °è»ê
-	result.magnitude = sqrt(pow(result.real, 2) + pow(result.imagin, 2)); // magnitude °è»ê (º¹¼Ò¼ö Å©±â °è»ê)
+	result.real = c1.real + c2.real;						// (a + c), ì‹¤ìˆ˜ë¼ë¦¬ ê³„ì‚°
+	result.imagin = c1.imagin + c2.imagin;					// (b + d)j, í—ˆìˆ˜ë¼ë¦¬ ê³„ì‚°
+	result.magnitude = sqrt(pow(result.real, 2) + pow(result.imagin, 2)); // magnitude ê³„ì‚° (ë³µì†Œìˆ˜ í¬ê¸° ê³„ì‚°)
 	
 
 	return result;											// (a + c) + (b + d)j
 }
 
-Cmplx cmplxSub(const Cmplx c1, const Cmplx c2)				// º¹¼Ò¼ö »¬¼À
+Cmplx cmplxSub(const Cmplx c1, const Cmplx c2)				// ë³µì†Œìˆ˜ ëº„ì…ˆ
 {
 	Cmplx result;
 
 	result.real = c1.real - c2.real;						// (a - c)
 	result.imagin = c1.imagin - c2.imagin;					//(b - d)i
 	result.magnitude = sqrt(pow(result.real, 2) + pow(result.imagin, 2));
-	// magnitude °è»ê (º¹¼Ò¼ö Å©±â °è»ê)
+	// magnitude ê³„ì‚° (ë³µì†Œìˆ˜ í¬ê¸° ê³„ì‚°)
 
 	return result;											// (a - c) + (b - d)j
 }
 
-Cmplx cmplxMul(const Cmplx c1, const Cmplx c2)				// º¹¼Ò¼ö °ö¼À
+Cmplx cmplxMul(const Cmplx c1, const Cmplx c2)				// ë³µì†Œìˆ˜ ê³±ì…ˆ
 {
 	Cmplx result;
 
 	result.real = (c1.real * c2.real) - (c1.imagin * c2.imagin);	// (ac - bd)
 	result.imagin = (c1.real * c2.imagin) + (c1.imagin * c2.real);	// (ad + bc)i
 	result.magnitude = sqrt(pow(result.real, 2) + pow(result.imagin, 2));
-	// magnitude °è»ê (º¹¼Ò¼ö Å©±â °è»ê)
+	// magnitude ê³„ì‚° (ë³µì†Œìˆ˜ í¬ê¸° ê³„ì‚°)
 
 	return result;											// (ac - bd) + (ad + bc)i
 }
 
-Cmplx cmplxDiv(const Cmplx c1, const Cmplx c2)				// º¹¼Ò¼ö ³ª´°¼À
+Cmplx cmplxDiv(const Cmplx c1, const Cmplx c2)				// ë³µì†Œìˆ˜ ë‚˜ëˆ—ì…ˆ
 {
 	Cmplx result;
 
-	result.real = (c1.real * c2.real + c1.imagin * c2.imagin) / (pow(c2.real, 2) + pow(c2.imagin, 2));		// (ac + bd) / (c©÷ + d©÷)
-	result.imagin = (c1.imagin * c2.real - c1.real * c2.imagin) / (pow(c2.real, 2) + pow(c2.imagin, 2));	// (bc - ad) / (c©÷ + d©÷)
+	result.real = (c1.real * c2.real + c1.imagin * c2.imagin) / (pow(c2.real, 2) + pow(c2.imagin, 2));		// (ac + bd) / (cÂ² + dÂ²)
+	result.imagin = (c1.imagin * c2.real - c1.real * c2.imagin) / (pow(c2.real, 2) + pow(c2.imagin, 2));	// (bc - ad) / (cÂ² + dÂ²)
 	result.magnitude = sqrt(pow(result.real, 2) + pow(result.imagin, 2));
-	// magnitude °è»ê (º¹¼Ò¼ö Å©±â °è»ê)
+	// magnitude ê³„ì‚° (ë³µì†Œìˆ˜ í¬ê¸° ê³„ì‚°)
 
-	return result;											// ((ac + bd) + (bc - ad)i) / (c©÷ + d©÷)
+	return result;											// ((ac + bd) + (bc - ad)i) / (cÂ² + dÂ²)
 }
 
-double CmpCmplx(const Cmplx c1, const Cmplx c2)				// º¹¼Ò¼ö ºñ±³ ÇÔ¼ö
+double CmpCmplx(const Cmplx c1, const Cmplx c2)				// ë³µì†Œìˆ˜ ë¹„êµ í•¨ìˆ˜
 {
-	// °è»êÇØµĞ magnitudeÀÇ Å©±â·Î µÎ º¹¼Ò¼öÀÇ Å©±â¸¦ ºñ±³ÇÔ ( c1 ±âÁØ )
+	// ê³„ì‚°í•´ë‘” magnitudeì˜ í¬ê¸°ë¡œ ë‘ ë³µì†Œìˆ˜ì˜ í¬ê¸°ë¥¼ ë¹„êµí•¨ ( c1 ê¸°ì¤€ )
 	if (c1.magnitude > c2.magnitude)				
 		return 1;
 	else if (c1.magnitude < c2.magnitude)
@@ -134,69 +134,69 @@ double CmpCmplx(const Cmplx c1, const Cmplx c2)				// º¹¼Ò¼ö ºñ±³ ÇÔ¼ö
 		return 0;
 }
 
-// ÄüÁ¤·Ä ÇÔ¼ö 
-void quickSortCmplx(Cmplx* cmplxs, int SIZE)					// ÄüÁ¤·Ä ÃÖÃÊÇÔ¼ö
+// í€µì •ë ¬ í•¨ìˆ˜ 
+void quickSortCmplx(Cmplx* cmplxs, int SIZE)					// í€µì •ë ¬ ìµœì´ˆí•¨ìˆ˜
 {
 	quickSort(cmplxs, SIZE, 0, SIZE - 1);
-	//Ã³À½ ÇÒ¶§´Â left = À§Ä¡°ªÀÌ 0, right = size-1
+	//ì²˜ìŒ í• ë•ŒëŠ” left = ìœ„ì¹˜ê°’ì´ 0, right = size-1
 }
 
-void quickSort(Cmplx* cmplxs, int SIZE, int left, int right)	// ÄüÁ¤·Ä º»ÇÔ¼ö
+void quickSort(Cmplx* cmplxs, int SIZE, int left, int right)	// í€µì •ë ¬ ë³¸í•¨ìˆ˜
 {
 	int P_I, newPI;
 	if (left >= right)
-		// ¸¸¾à left°¡ rightº¸´Ù Å©°Å³ª °°´Ù¸é newPI¹İÈ¯ ÁßÁö, °ÅÀÇ left°¡ 1È¤Àº 0ÀÏ¶§ÀÌ´Ù..
+		// ë§Œì•½ leftê°€ rightë³´ë‹¤ í¬ê±°ë‚˜ ê°™ë‹¤ë©´ newPIë°˜í™˜ ì¤‘ì§€, ê±°ì˜ leftê°€ 1í˜¹ì€ 0ì¼ë•Œì´ë‹¤..
 		return;
 
 	else if (left < right)
 	{
-		P_I = (left + right) / 2;						// Áß°£°ª, ¸¸¾à È¦¼öÀÎ°æ¿ì ³»¸²°ªÀ¸·Î ³ª´©±âÀ§Ä¡°ª »êÃâ
+		P_I = (left + right) / 2;						// ì¤‘ê°„ê°’, ë§Œì•½ í™€ìˆ˜ì¸ê²½ìš° ë‚´ë¦¼ê°’ìœ¼ë¡œ ë‚˜ëˆ„ê¸°ìœ„ì¹˜ê°’ ì‚°ì¶œ
 	}
 
-	newPI = _partition(cmplxs, SIZE, left, right, P_I); //»õ·Î¿î P_I(³ª´©±âÀ§Ä¡°ª) »êÃâ ¹×, Á¤·Ä
+	newPI = _partition(cmplxs, SIZE, left, right, P_I); //ìƒˆë¡œìš´ P_I(ë‚˜ëˆ„ê¸°ìœ„ì¹˜ê°’) ì‚°ì¶œ ë°, ì •ë ¬
 
-	// ÀÌ·¸°Ô ¿ŞÂÊ, ¿À¸¥ÂÊ ¼ø¼­´ë·Î ÀÛÀºµ¢ÀÌ ¡æ Å«µ¢ÀÌ
-	if (left < (newPI - 1))								// ÀÌÁ¦ newPI±âÁØÀ¸·Î ¿ŞÂÊºÎºĞ
+	// ì´ë ‡ê²Œ ì™¼ìª½, ì˜¤ë¥¸ìª½ ìˆœì„œëŒ€ë¡œ ì‘ì€ë©ì´ â†’ í°ë©ì´
+	if (left < (newPI - 1))								// ì´ì œ newPIê¸°ì¤€ìœ¼ë¡œ ì™¼ìª½ë¶€ë¶„
 	{
 		quickSort(cmplxs, SIZE, left, newPI - 1);
-		// ´Ù½Ã newPI¸¦ »êÃâÇÏ¸é¼­ Å©±âÁ¤·ÄÀ» ÂßÇØÁØ´Ù.
+		// ë‹¤ì‹œ newPIë¥¼ ì‚°ì¶œí•˜ë©´ì„œ í¬ê¸°ì •ë ¬ì„ ì­‰í•´ì¤€ë‹¤.
 	}
-	if ((newPI + 1) < right)							// ´ÙÀ½, ¿ŞÂÊÀÌ quickSort¸¦ ÁøÇàÈÄ, newPI±âÁØ ¿À¸¥ÂÊ ºÎºĞ
+	if ((newPI + 1) < right)							// ë‹¤ìŒ, ì™¼ìª½ì´ quickSortë¥¼ ì§„í–‰í›„, newPIê¸°ì¤€ ì˜¤ë¥¸ìª½ ë¶€ë¶„
 	{
 		quickSort(cmplxs, SIZE, newPI + 1, right);
-		// ¿À¸¥ÂÊÀ¸·Î newPI»êÃâ¹× Å©±â¼øÀ¸·Î Á¤·ÄÇØÁØ´Ù.
+		// ì˜¤ë¥¸ìª½ìœ¼ë¡œ newPIì‚°ì¶œë° í¬ê¸°ìˆœìœ¼ë¡œ ì •ë ¬í•´ì¤€ë‹¤.
 	}
 }
 
-int _partition(Cmplx* cmplxs, int SIZE, int left, int right, int P_I) //ÆÄÆ¼¼Ç À§Ä¡°ª ¹İÈ¯ ÇÔ¼ö
+int _partition(Cmplx* cmplxs, int SIZE, int left, int right, int P_I) //íŒŒí‹°ì…˜ ìœ„ì¹˜ê°’ ë°˜í™˜ í•¨ìˆ˜
 {
-	Cmplx P_V;							//pivot value, ±× À§Ä¡¿¡ ÀÖ´Â °ª
-	Cmplx temp;							// °ª ÀÚ¸®¹Ù²Ù±â ÇÏ±â À§ÇÑ ÀÓ½ÃÀúÀå º¯¼ö
-	int newPI;							// new pivot index, »õ·Î¿î À§Ä¡°ª
+	Cmplx P_V;							//pivot value, ê·¸ ìœ„ì¹˜ì— ìˆëŠ” ê°’
+	Cmplx temp;							// ê°’ ìë¦¬ë°”ê¾¸ê¸° í•˜ê¸° ìœ„í•œ ì„ì‹œì €ì¥ ë³€ìˆ˜
+	int newPI;							// new pivot index, ìƒˆë¡œìš´ ìœ„ì¹˜ê°’
 
-	// 1. Á¤Áß¾Ó°ú ¸¶Áö¸· µÎ °³¸¦ À§Ä¡±³È¯
+	// 1. ì •ì¤‘ì•™ê³¼ ë§ˆì§€ë§‰ ë‘ ê°œë¥¼ ìœ„ì¹˜êµí™˜
 	P_V = cmplxs[P_I];
 	cmplxs[P_I] = cmplxs[right];
-	cmplxs[right] = P_V; // ¸Ç Ã³À½ P_I¿¡ ÀÖ´ø °ªÀ» ¸Ç ¿À¸¥ÂÊ(È¤Àº P_I-1À§Ä¡¿¡ ÀÖ´Â °ª)°ú ¹Ù²Û´Ù
+	cmplxs[right] = P_V; // ë§¨ ì²˜ìŒ P_Iì— ìˆë˜ ê°’ì„ ë§¨ ì˜¤ë¥¸ìª½(í˜¹ì€ P_I-1ìœ„ì¹˜ì— ìˆëŠ” ê°’)ê³¼ ë°”ê¾¼ë‹¤
 
-	// 2. newPI(»õ·Î¿î Áß¾Ó°ª ¼³Á¤)
-	newPI = left;										// ÀÌÁ¦ »õ·Î¿î ÇÇ¹şÀ§Ä¡¸¦ ¼³Á¤ÇØÁÖ´Âµ¥ ÃÊ±â°ªÀº ¸Ç ¿ŞÂÊ(È¤Àº P_I + 1À§Ä¡)À¸·Î ¼³Á¤
-	for (int i = left; i <= right - 1; i++)				// ¸ÇµÚ·Î °¡°ÔµÈ P_V´Â »©°í ³ª¸ÓÁö ¹è¿­µéÀ» ¹üÀ§·Î Àâ´Â´Ù.
+	// 2. newPI(ìƒˆë¡œìš´ ì¤‘ì•™ê°’ ì„¤ì •)
+	newPI = left;										// ì´ì œ ìƒˆë¡œìš´ í”¼ë²—ìœ„ì¹˜ë¥¼ ì„¤ì •í•´ì£¼ëŠ”ë° ì´ˆê¸°ê°’ì€ ë§¨ ì™¼ìª½(í˜¹ì€ P_I + 1ìœ„ì¹˜)ìœ¼ë¡œ ì„¤ì •
+	for (int i = left; i <= right - 1; i++)				// ë§¨ë’¤ë¡œ ê°€ê²Œëœ P_VëŠ” ë¹¼ê³  ë‚˜ë¨¸ì§€ ë°°ì—´ë“¤ì„ ë²”ìœ„ë¡œ ì¡ëŠ”ë‹¤.
 	{
-		if (CmpCmplx(cmplxs[i], P_V) == -1)				//¸¸¾à ¸ÇµÚ·Î °£ P_Vº¸´Ù °ªÀÌ ÀÛ´Ù¸é
+		if (CmpCmplx(cmplxs[i], P_V) == -1)				//ë§Œì•½ ë§¨ë’¤ë¡œ ê°„ P_Vë³´ë‹¤ ê°’ì´ ì‘ë‹¤ë©´
 		{
 			temp = cmplxs[i];
 			cmplxs[i] = cmplxs[newPI];
-			cmplxs[newPI] = temp;						// ÇöÀç(i)À§Ä¡¿¡ ÀÖ´Â °ªÀ» newPI¿¡ ÀÖ´Â °ª°ú¿Í ¹Ù²ãÁØ´Ù.
+			cmplxs[newPI] = temp;						// í˜„ì¬(i)ìœ„ì¹˜ì— ìˆëŠ” ê°’ì„ newPIì— ìˆëŠ” ê°’ê³¼ì™€ ë°”ê¿”ì¤€ë‹¤.
 			newPI += 1;
 		}
 	}
-	// °á·ĞÀûÀ¸·Î Ã³À½ P_V°ªÀ» ±âÁØÀ¸·Î ¿ŞÂÊÀº P_Vº¸´Ù ÀÛÀº °ªµéÀÇ ¹è¿­, ¿À¸¥ÂÊÀº P_Vº¸´Ù Å« °ªµéÀÇ ¹è¿­ÀÌ Çü¼ºµÇ¾ú´Ù.
+	// ê²°ë¡ ì ìœ¼ë¡œ ì²˜ìŒ P_Vê°’ì„ ê¸°ì¤€ìœ¼ë¡œ ì™¼ìª½ì€ P_Vë³´ë‹¤ ì‘ì€ ê°’ë“¤ì˜ ë°°ì—´, ì˜¤ë¥¸ìª½ì€ P_Vë³´ë‹¤ í° ê°’ë“¤ì˜ ë°°ì—´ì´ í˜•ì„±ë˜ì—ˆë‹¤.
 
-	// 3. 1¿¡¼­ Çß´ø°ÍÃ³·³ ¸Ç¸¶Áö¸·°ú Á¤Áß¾ÓÀ» ±³È¯
+	// 3. 1ì—ì„œ í–ˆë˜ê²ƒì²˜ëŸ¼ ë§¨ë§ˆì§€ë§‰ê³¼ ì •ì¤‘ì•™ì„ êµí™˜
 	P_V = cmplxs[right];
 	cmplxs[right] = cmplxs[newPI];
 	cmplxs[newPI] = P_V;
 
-	return newPI; //»õ·Î¿î PIÀÇ °ªÀ» ¹İÈ¯ÇØÁØ´Ù.
+	return newPI; //ìƒˆë¡œìš´ PIì˜ ê°’ì„ ë°˜í™˜í•´ì¤€ë‹¤.
 }
