@@ -1,27 +1,27 @@
-#include "Time.h"
+#include "Time.h" 
 
 int main(void)
 {
-	Time t1, t2;							// ½Ã°£ ÀÔ·Â º¯¼ö
+	Time t1, t2;							// ì‹œê°„ ì…ë ¥ ë³€ìˆ˜
 	Time times[NUM_Time] = { {23, 59, 59}, {9, 0, 5}, {13, 30, 0}, {3, 59, 59}, {0, 0 ,0} };
-	// ½Ã°£ ¹è¿­ ÃÊ±â°ª 
+	// ì‹œê°„ ë°°ì—´ ì´ˆê¸°ê°’ 
 	int incr_secs, diff_sec;
 
-	// 1. t1, t2¸¦ ÀÔ·Â¹Ş°í, t2¸¦ Áõ°¡½ÃÅ²ÈÄ, t1°ú t2»çÀÌÀÇ ½Ã°£Â÷¸¦ ±¸ÇÔ
-	t1 = t2 = InputTime();					// ½Ã°£À» ÀÔ·Â¹ŞÀº ÈÄ, t1, t2¿¡ ÀúÀå
+	// 1. t1, t2ë¥¼ ì…ë ¥ë°›ê³ , t2ë¥¼ ì¦ê°€ì‹œí‚¨í›„, t1ê³¼ t2ì‚¬ì´ì˜ ì‹œê°„ì°¨ë¥¼ êµ¬í•¨
+	t1 = t2 = InputTime();					// ì‹œê°„ì„ ì…ë ¥ë°›ì€ í›„, t1, t2ì— ì €ì¥
 	printf("Input time t1 = "); printTime(&t1); printf("\n");
 	printf("Input seconds to increment : ");
-	scanf("%d", &incr_secs);				// º¯È­ ½ÃÅ³ ÃÊ¸¦ ÀÔ·Â
-	incrementTime(&t2, incr_secs);			//t2¸¦ º¯È­½ÃÅ²´Ù.
-	printf("After incrementing %d secs, t2 = ", incr_secs); printTime(&t2); printf("\n"); // t2Ãâ·Â
-	diff_sec = compareTime(&t1, &t2);		// t1, t2ÀÇ Â÷ÀÌ¸¦ °è»êÇØÁÜ
-	printf("Difference between t1 and t2 is %d secs\n", abs(diff_sec)); //½Ã°£Â÷¸¦ Ãâ·Â
+	scanf("%d", &incr_secs);				// ë³€í™” ì‹œí‚¬ ì´ˆë¥¼ ì…ë ¥
+	incrementTime(&t2, incr_secs);			//t2ë¥¼ ë³€í™”ì‹œí‚¨ë‹¤.
+	printf("After incrementing %d secs, t2 = ", incr_secs); printTime(&t2); printf("\n"); // t2ì¶œë ¥
+	diff_sec = compareTime(&t1, &t2);		// t1, t2ì˜ ì°¨ì´ë¥¼ ê³„ì‚°í•´ì¤Œ
+	printf("Difference between t1 and t2 is %d secs\n", abs(diff_sec)); //ì‹œê°„ì°¨ë¥¼ ì¶œë ¥
 
-	// 2. ¹è¿­ÀÇ °ªÀ» ¼±ÅÃÁ¤·ÄÇÑ ÈÄ Ãâ·Â
-	printf("\nBefore sorting times : \n");				//½Ã°£ ¹è¿­ Á¤·Ä Àü Ãâ·Â
+	// 2. ë°°ì—´ì˜ ê°’ì„ ì„ íƒì •ë ¬í•œ í›„ ì¶œë ¥
+	printf("\nBefore sorting times : \n");				//ì‹œê°„ ë°°ì—´ ì •ë ¬ ì „ ì¶œë ¥
 	printTimes(times, NUM_Time);
-	SSTime(times, NUM_Time);							//½Ã°£ ¹è¿­ Á¤·Ä
-	printf("After selection sorting of times : \n");	//½Ã°£ ¹è¿­ Á¤·Ä ÈÄ Ãâ·Â
+	SSTime(times, NUM_Time);							//ì‹œê°„ ë°°ì—´ ì •ë ¬
+	printf("After selection sorting of times : \n");	//ì‹œê°„ ë°°ì—´ ì •ë ¬ í›„ ì¶œë ¥
 	printTimes(times, NUM_Time);
 
 	return 0;
