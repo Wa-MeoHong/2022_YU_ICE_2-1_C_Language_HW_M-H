@@ -1,4 +1,4 @@
-#include "Cmplx.h" 
+#include "Cmplx.h"
 
 Cmplx InputCmplx()						// 복소수 입력 및 초기값 설정
 {
