@@ -1,0 +1,14 @@
+Input words list : 
+( 1)th-words : one        (word_length: 3)
+( 2)th-words : two        (word_length: 3)
+( 3)th-words : three      (word_length: 5)
+( 4)th-words : four       (word_length: 4)
+( 5)th-words : five       (word_length: 4)
+( 6)th-words : six        (word_length: 3)
+( 7)th-words : seven      (word_length: 5)
+( 8)th-words : eight      (word_length: 5)
+( 9)th-words : nine       (word_length: 4)
+(10)th-words : ten        (word_length: 3)
+
+eight     five      four      nine      one       
+seven     six       ten       three     two       
