@@ -1,32 +1,32 @@
 /*
-  ÆÄÀÏ¸í : "HW10-1_21912193_½Å´ëÈ«"
-  ÇÁ·Î±×·¥ÀÇ ¸ñÀû ¹× ±âº» ±â´É:
-	- ¿µ´Ü¾î°¡ µç ÅØ½ºÆ®ÆÄÀÏÀ» ÀÐ°í, ´Ü¾îÀÇ ±æÀÌ¸¦ ¾Ë¾Æ³» Çü½Ä¿¡ ¸Â°Ô Ãâ·ÂÈÄ, ´Ü¾î¸¦ ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä ÈÄ, ´Ü¾î Ãâ·Â
+  íŒŒì¼ëª… : "HW10-1_21912193_ì‹ ëŒ€í™"
+  í”„ë¡œê·¸ëž¨ì˜ ëª©ì  ë° ê¸°ë³¸ ê¸°ëŠ¥:
+	- ì˜ë‹¨ì–´ê°€ ë“  í…ìŠ¤íŠ¸íŒŒì¼ì„ ì½ê³ , ë‹¨ì–´ì˜ ê¸¸ì´ë¥¼ ì•Œì•„ë‚´ í˜•ì‹ì— ë§žê²Œ ì¶œë ¥í›„, ë‹¨ì–´ë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ í›„, ë‹¨ì–´ ì¶œë ¥
   
-  ÇÁ·Î±×·¥ ÀÛ¼ºÀÚ : ½Å´ëÈ«(2022³â 5¿ù 14ÀÏ)
-  ÃÖÁ¾ Update : Version 1.0.0, 2022³â 5¿ù 14ÀÏ(½Å´ëÈ«)
+  í”„ë¡œê·¸ëž¨ ìž‘ì„±ìž : ì‹ ëŒ€í™(2022ë…„ 5ì›” 14ì¼)
+  ìµœì¢… Update : Version 1.0.0, 2022ë…„ 5ì›” 14ì¼(ì‹ ëŒ€í™)
 ===========================================================================================================
-					ÇÁ·Î±×·¥ ¼öÁ¤/º¸¿Ï ÀÌ·Â
+					í”„ë¡œê·¸ëž¨ ìˆ˜ì •/ë³´ì™„ ì´ë ¥
 ===========================================================================================================
-   ¼öÁ¤ÀÚ		   ¼öÁ¤ÀÏ		 ¹öÀü			     ¼öÁ¤/º¸¿Ï³»¿ë
+   ìˆ˜ì •ìž		   ìˆ˜ì •ì¼		 ë²„ì „			     ìˆ˜ì •/ë³´ì™„ë‚´ìš©
 -----------------------------------------------------------------------------------------------------------
-   ½Å´ëÈ«		 2022/05/14		v1.0.0		  ÃÖÃÊÀÛ¼º
+   ì‹ ëŒ€í™		 2022/05/14		v1.0.0		  ìµœì´ˆìž‘ì„±
 ===========================================================================================================
 */
 
 #ifndef WORD_H
 #define WORD_H
-#pragma warning(disable: 4996)						// scanf¿À·ù ¾È¶ß°Ô ÇÏ´Â pragmaÁ¤ÀÇ 
+#pragma warning(disable: 4996)						// scanfì˜¤ë¥˜ ì•ˆëœ¨ê²Œ í•˜ëŠ” pragmaì •ì˜ 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 
-#define NUM_WORDS 10								// ´Ü¾îÀÇ °³¼ö
-#define WORD_LENS 15								// ÃÖ´ë ´Ü¾îÀÇ ±æÀÌ
+#define NUM_WORDS 10								// ë‹¨ì–´ì˜ ê°œìˆ˜
+#define WORD_LENS 15								// ìµœëŒ€ ë‹¨ì–´ì˜ ê¸¸ì´
 
-void FprintWords(FILE* fout, char words[][WORD_LENS], int* word_len, int num_words); // ÆÄÀÏÃâ·ÂÇÔ¼ö
-void SelectionSortWords(char words[][WORD_LENS], int num_words); // ´Ü¾î ¼±ÅÃ Á¤·Ä ÇÔ¼ö
+void FprintWords(FILE* fout, char words[][WORD_LENS], int* word_len, int num_words); // íŒŒì¼ì¶œë ¥í•¨ìˆ˜
+void SelectionSortWords(char words[][WORD_LENS], int num_words); // ë‹¨ì–´ ì„ íƒ ì •ë ¬ í•¨ìˆ˜
 
-#endif // !WORD_H
+#endif // !WORD_H 
