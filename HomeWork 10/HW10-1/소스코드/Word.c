@@ -1,41 +1,41 @@
-#include "word.h"
+#include "word.h" 
 
-void FprintWords(FILE* fout, char words[][WORD_LENS], int* word_len, int num_words)		// ÆÄÀÏÃâ·ÂÇÔ¼ö
+void FprintWords(FILE* fout, char words[][WORD_LENS], int* word_len, int num_words)		// íŒŒì¼ì¶œë ¥í•¨ìˆ˜
 {
 	fprintf(fout, "Input words list : \n");
 
-	for (int i = 0; i < num_words; i++)													// ¹İº¹¹®À» ÅëÇØ Ãâ·Â
+	for (int i = 0; i < num_words; i++)													// ë°˜ë³µë¬¸ì„ í†µí•´ ì¶œë ¥
 	{
 		fprintf(fout, "(%2d)th-words : %-10s (word_length: %d)\n", i + 1, words[i], word_len[i]);
-		// 1¹øÂ°ºÎÅÍ 10¹øÂ°±îÁö Ãâ·Â, %-15s : 15ÀÚ¸®¸¸Å­ ¿ŞÂÊÁ¤·ÄÇØ¼­ Ãâ·Â
+		// 1ë²ˆì§¸ë¶€í„° 10ë²ˆì§¸ê¹Œì§€ ì¶œë ¥, %-15s : 15ìë¦¬ë§Œí¼ ì™¼ìª½ì •ë ¬í•´ì„œ ì¶œë ¥
 	}
 	fprintf(fout, "\n"); 
 }
 
-void SelectionSortWords(char words[][WORD_LENS], int num_words)				// ´Ü¾î ¼±ÅÃ Á¤·Ä ÇÔ¼ö
+void SelectionSortWords(char words[][WORD_LENS], int num_words)				// ë‹¨ì–´ ì„ íƒ ì •ë ¬ í•¨ìˆ˜
 {
-	char temp[WORD_LENS] = { 0 };											// ´Ü¾î¸¦ ¹Ù²Ù±â À§ÇÑ ÀÓ½Ã ¹®ÀÚ¿­ ¹è¿­
-	int sort_IDX = 0, min_IDX = 0;											// Á¤·Ä ±âÁØ ÀÎµ¦½º, ÃÖ¼Ò°ª ÀÎµ¦½º
+	char temp[WORD_LENS] = { 0 };											// ë‹¨ì–´ë¥¼ ë°”ê¾¸ê¸° ìœ„í•œ ì„ì‹œ ë¬¸ìì—´ ë°°ì—´
+	int sort_IDX = 0, min_IDX = 0;											// ì •ë ¬ ê¸°ì¤€ ì¸ë±ìŠ¤, ìµœì†Œê°’ ì¸ë±ìŠ¤
 
 	while (1)
 	{
-		if (sort_IDX == num_words)											//¸¸¾à Á¤·Ä ÀÎµ¦½º°¡ ´Ü¾îÀÇ °³¼ö¸¸Å­ Çß´Ù¸é ÁßÁö
+		if (sort_IDX == num_words)											//ë§Œì•½ ì •ë ¬ ì¸ë±ìŠ¤ê°€ ë‹¨ì–´ì˜ ê°œìˆ˜ë§Œí¼ í–ˆë‹¤ë©´ ì¤‘ì§€
 			break;
-		strcpy(temp, words[sort_IDX]);										// Á¤·Ä ±âÁØ ÀÎµ¦½º¿¡ ÀÖ´Â ´Ü¾î¸¦ º¹»ç
-		min_IDX = sort_IDX;													// ÃÖ¼Ò°ª ÀÎµ¦½º ÃÊ±â°ª ¼³Á¤
+		strcpy(temp, words[sort_IDX]);										// ì •ë ¬ ê¸°ì¤€ ì¸ë±ìŠ¤ì— ìˆëŠ” ë‹¨ì–´ë¥¼ ë³µì‚¬
+		min_IDX = sort_IDX;													// ìµœì†Œê°’ ì¸ë±ìŠ¤ ì´ˆê¸°ê°’ ì„¤ì •
 
-		for (int i = sort_IDX + 1; i < num_words; i++)						// Á¤·Ä ±âÁØÀÎµ¦½º + 1ºÎÅÍ ´Ü¾î¹è¿­ ³¡±îÁö
+		for (int i = sort_IDX + 1; i < num_words; i++)						// ì •ë ¬ ê¸°ì¤€ì¸ë±ìŠ¤ + 1ë¶€í„° ë‹¨ì–´ë°°ì—´ ëê¹Œì§€
 		{
-			if (strcmp(temp, words[i]) == 1)								// ¸¸¾à ´Ü¾î°¡ tempº¸´Ù Å©´Ù¸é( ¾Æ½ºÅ°ÄÚµå ±âÁØ )
+			if (strcmp(temp, words[i]) == 1)								// ë§Œì•½ ë‹¨ì–´ê°€ tempë³´ë‹¤ í¬ë‹¤ë©´( ì•„ìŠ¤í‚¤ì½”ë“œ ê¸°ì¤€ )
 			{
-				strcpy(temp, words[i]);										// ÃÖ¼Ò°ª ´Ü¾î °»½Å
-				min_IDX = i;												// ÃÖ¼Ò°ª ÀÎµ¦½º °»½Å
+				strcpy(temp, words[i]);										// ìµœì†Œê°’ ë‹¨ì–´ ê°±ì‹ 
+				min_IDX = i;												// ìµœì†Œê°’ ì¸ë±ìŠ¤ ê°±ì‹ 
 			}
 		}
 
-		//°ª ¹Ù²Ù±â
+		//ê°’ ë°”ê¾¸ê¸°
 		strcpy(words[min_IDX], words[sort_IDX]);
 		strcpy(words[sort_IDX], temp);
-		sort_IDX++; // Á¤·Ä ÀÎµ¦½º Áõ°¡
+		sort_IDX++; // ì •ë ¬ ì¸ë±ìŠ¤ ì¦ê°€
 	}
 }
