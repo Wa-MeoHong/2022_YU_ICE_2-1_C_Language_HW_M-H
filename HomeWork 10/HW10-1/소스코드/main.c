@@ -1,36 +1,36 @@
-#include "word.h"
+#include "word.h" 
 
-#define INPUT "words_input.txt"						// ÀÔ·Â ÆÄÀÏ 
-#define OUTPUT "words_output.txt"					// Ãâ·Â ÆÄÀÏ
+#define INPUT "words_input.txt"						// ì…ë ¥ íŒŒì¼ 
+#define OUTPUT "words_output.txt"					// ì¶œë ¥ íŒŒì¼
 
 int main(void)
 {
-	FILE* fin = NULL, * fout = NULL;			// ÆÄÀÏ Æ÷ÀÎÅÍ
-	char words[NUM_WORDS][WORD_LENS] = { 0 };	// ¹è¿­ÀÌ ÀÛ¾Æ¼­ µû·Î µ¿ÀûÇÒ´çÀº ¾ÈÇÔ
-	int word_len[NUM_WORDS];					// ´Ü¾îÀÇ ±æÀÌ¸¦ ´ã´Â Á¤¼öÇü ¹è¿­
-	int count = 0;								// ´Ü¾îÀÇ °³¼ö¸¦ ¼À
+	FILE* fin = NULL, * fout = NULL;			// íŒŒì¼ í¬ì¸í„°
+	char words[NUM_WORDS][WORD_LENS] = { 0 };	// ë°°ì—´ì´ ì‘ì•„ì„œ ë”°ë¡œ ë™ì í• ë‹¹ì€ ì•ˆí•¨
+	int word_len[NUM_WORDS];					// ë‹¨ì–´ì˜ ê¸¸ì´ë¥¼ ë‹´ëŠ” ì •ìˆ˜í˜• ë°°ì—´
+	int count = 0;								// ë‹¨ì–´ì˜ ê°œìˆ˜ë¥¼ ì…ˆ
 
 	if ((fin = fopen(INPUT, "r")) == NULL)
 	{
 		printf("Error! Not open words_input.txt File!!\n");
 		exit(-1);
-	} // ÀĞ±â ÆÄÀÏ ¿ÀÇÂ
+	} // ì½ê¸° íŒŒì¼ ì˜¤í”ˆ
 
 	if ((fout = fopen(OUTPUT, "w")) == NULL)
 	{
 		printf("Error! Not open words_output.txt File!!\n");
 		exit(-1);
-	} // Ãâ·Â ÆÄÀÏ ¿ÀÇÂ
+	} // ì¶œë ¥ íŒŒì¼ ì˜¤í”ˆ
 
-	while (fscanf(fin, "%s", &words[count]) != EOF)		// ÆÄÀÏÀÌ ³¡³¯¶§ ±îÁö, words¹è¿­¿¡ ÀúÀå
+	while (fscanf(fin, "%s", &words[count]) != EOF)		// íŒŒì¼ì´ ëë‚ ë•Œ ê¹Œì§€, wordsë°°ì—´ì— ì €ì¥
 	{
-		word_len[count] = strlen(words[count]);			// ÀĞÀº ´Ü¾îÀÇ ±æÀÌ¸¦ ±¸ÇÔ 
-		count++;										// ´Ü¾î °³¼ö Áõ°¡
+		word_len[count] = strlen(words[count]);			// ì½ì€ ë‹¨ì–´ì˜ ê¸¸ì´ë¥¼ êµ¬í•¨ 
+		count++;										// ë‹¨ì–´ ê°œìˆ˜ ì¦ê°€
 	}
 
-	FprintWords(fout, words, word_len, count);			// ÆÄÀÏÃâ·Â
-	SelectionSortWords(words, count);					// ´Ü¾î ¿À¸§Â÷¼ø Á¤·Ä
-	for (int i = 0; i < count; i++)						// Á¤·ÄÇÑ ´Ü¾î Ãâ·Â
+	FprintWords(fout, words, word_len, count);			// íŒŒì¼ì¶œë ¥
+	SelectionSortWords(words, count);					// ë‹¨ì–´ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+	for (int i = 0; i < count; i++)						// ì •ë ¬í•œ ë‹¨ì–´ ì¶œë ¥
 	{
 		if (i == count / 2)
 			fprintf(fout, "\n");
@@ -38,8 +38,8 @@ int main(void)
 	}
 	fprintf(fout, "\n");
 
-	printf(" Please check words_output.txt File!\n");	// È®ÀÎ¿ë..
-	fcloseall();										// ¸ğµç ÀÛ¾÷ÀÌ ³¡³­ ÈÄ, ¿­·ÁÀÖ´Â ÆÄÀÏÀ» ¸ğµÎ ´İ´Â´Ù.
+	printf(" Please check words_output.txt File!\n");	// í™•ì¸ìš©..
+	fcloseall();										// ëª¨ë“  ì‘ì—…ì´ ëë‚œ í›„, ì—´ë ¤ìˆëŠ” íŒŒì¼ì„ ëª¨ë‘ ë‹«ëŠ”ë‹¤.
 
 	return 0;
 
