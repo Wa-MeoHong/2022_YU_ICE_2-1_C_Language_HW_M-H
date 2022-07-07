@@ -1,56 +1,56 @@
-/*
-  ÆÄÀÏ¸í : "HW9-1_21912193_½Å´ëÈ«"
+/* 
+  íŒŒì¼ëª… : "HW9-1_21912193_ì‹ ëŒ€í™"
 
-  ÇÁ·Î±×·¥ÀÇ ¸ñÀû ¹× ±âº» ±â´É:
-	- º¹¼Ò¼ö ±¸Á¶Ã¼ ÀÚ·áÇü ¼±¾ğ ÈÄ, º¹¼Ò¼ö 2°³¸¦ ÀÔ·Â¹Ş°í ¿¬»êÀ» ÁøÇà ÈÄ, ÄüÁ¤·ÄÀ» ÇÏ¿© Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+  í”„ë¡œê·¸ë¨ì˜ ëª©ì  ë° ê¸°ë³¸ ê¸°ëŠ¥:
+	- ë³µì†Œìˆ˜ êµ¬ì¡°ì²´ ìë£Œí˜• ì„ ì–¸ í›„, ë³µì†Œìˆ˜ 2ê°œë¥¼ ì…ë ¥ë°›ê³  ì—°ì‚°ì„ ì§„í–‰ í›„, í€µì •ë ¬ì„ í•˜ì—¬ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 
-  ÇÁ·Î±×·¥ ÀÛ¼ºÀÚ : ½Å´ëÈ«(2022³â 5¿ù 7ÀÏ)
-  ÃÖÁ¾ Update : Version 1.1.0, 2022³â 5¿ù 8ÀÏ(½Å´ëÈ«)
+  í”„ë¡œê·¸ë¨ ì‘ì„±ì : ì‹ ëŒ€í™(2022ë…„ 5ì›” 7ì¼)
+  ìµœì¢… Update : Version 1.1.0, 2022ë…„ 5ì›” 8ì¼(ì‹ ëŒ€í™)
 ===========================================================================================================
-					ÇÁ·Î±×·¥ ¼öÁ¤/º¸¿Ï ÀÌ·Â
+					í”„ë¡œê·¸ë¨ ìˆ˜ì •/ë³´ì™„ ì´ë ¥
 ===========================================================================================================
-   ¼öÁ¤ÀÚ		   ¼öÁ¤ÀÏ		 ¹öÀü			     ¼öÁ¤/º¸¿Ï³»¿ë
+   ìˆ˜ì •ì		   ìˆ˜ì •ì¼		 ë²„ì „			     ìˆ˜ì •/ë³´ì™„ë‚´ìš©
 -----------------------------------------------------------------------------------------------------------
-   ½Å´ëÈ«		 2022/05/07		v1.0.0		  ÃÖÃÊÀÛ¼º
-   ½Å´ëÈ«		 2022/05/08		v1.1.0		  ÄÚµå¿Ï¼º
+   ì‹ ëŒ€í™		 2022/05/07		v1.0.0		  ìµœì´ˆì‘ì„±
+   ì‹ ëŒ€í™		 2022/05/08		v1.1.0		  ì½”ë“œì™„ì„±
 ===========================================================================================================
 */
 
 #ifndef CMPLX_H
 #define CMPLX_H
-#pragma warning(disable: 4996) // scanf¿À·ù ¾È¶ß°Ô ÇÏ´Â pragmaÁ¤ÀÇ 
+#pragma warning(disable: 4996) // scanfì˜¤ë¥˜ ì•ˆëœ¨ê²Œ í•˜ëŠ” pragmaì •ì˜ 
 
 #include <stdio.h>
 #include <math.h>
-#define CmplxNUM 7															//º¹¼Ò¼ö °³¼ö
+#define CmplxNUM 7															//ë³µì†Œìˆ˜ ê°œìˆ˜
 
 typedef struct Complex_Number
 {
-	double real;					// ½Ç¼öºÎºĞ
-	double imagin;					// Çã¼ö ºÎºĞ
-	double magnitude;				// º¹¼Ò¼ö Å©±â(º¹¼Ò¼ö Å©±âºñ±³¿ë)
+	double real;					// ì‹¤ìˆ˜ë¶€ë¶„
+	double imagin;					// í—ˆìˆ˜ ë¶€ë¶„
+	double magnitude;				// ë³µì†Œìˆ˜ í¬ê¸°(ë³µì†Œìˆ˜ í¬ê¸°ë¹„êµìš©)
 } Cmplx;
 
 typedef enum Oper { ADD, SUB, MUL, DIV } Oper; 
-// º¹¼Ò¼ö ¿¬»ê °á°ú Ãâ·Â¿ë enum
+// ë³µì†Œìˆ˜ ì—°ì‚° ê²°ê³¼ ì¶œë ¥ìš© enum
 
-Cmplx InputCmplx();											// º¹¼Ò¼ö ÀÔ·Â ÇÔ¼ö
+Cmplx InputCmplx();											// ë³µì†Œìˆ˜ ì…ë ¥ í•¨ìˆ˜
 
-// º¹¼Ò¼ö Ãâ·Â
-void printCmplxNum(const Cmplx c);													// º¹¼Ò¼ö Ãâ·Â ÇÔ¼ö
-void printCplxresult(const Cmplx c1, const Cmplx c2, const Cmplx res, Oper num);	// º¹¼Ò¼ö ¿¬»ê Ãâ·Â ÇÔ¼ö
-void printCmplxs(const Cmplx* cmplxs, int SIZE);									// º¹¼Ò¼ö ¹è¿­ Ãâ·Â ÇÔ¼ö
+// ë³µì†Œìˆ˜ ì¶œë ¥
+void printCmplxNum(const Cmplx c);													// ë³µì†Œìˆ˜ ì¶œë ¥ í•¨ìˆ˜
+void printCplxresult(const Cmplx c1, const Cmplx c2, const Cmplx res, Oper num);	// ë³µì†Œìˆ˜ ì—°ì‚° ì¶œë ¥ í•¨ìˆ˜
+void printCmplxs(const Cmplx* cmplxs, int SIZE);									// ë³µì†Œìˆ˜ ë°°ì—´ ì¶œë ¥ í•¨ìˆ˜
 
-// º¹¼Ò¼ö ¿¬»ê, ºñ±³
-Cmplx cmplxAdd(const Cmplx c1, const Cmplx c2);										// º¹¼Ò¼ö µ¡¼À
-Cmplx cmplxSub(const Cmplx c1, const Cmplx c2);										// º¹¼Ò¼ö »¬¼À
-Cmplx cmplxMul(const Cmplx c1, const Cmplx c2);										// º¹¼Ò¼ö °ö¼À
-Cmplx cmplxDiv(const Cmplx c1, const Cmplx c2);										// º¹¼Ò¼ö ³ª´°¼À
-double CmpCmplx(const Cmplx c1, const Cmplx c2);									// º¹¼Ò¼ö ºñ±³ ÇÔ¼ö
+// ë³µì†Œìˆ˜ ì—°ì‚°, ë¹„êµ
+Cmplx cmplxAdd(const Cmplx c1, const Cmplx c2);										// ë³µì†Œìˆ˜ ë§ì…ˆ
+Cmplx cmplxSub(const Cmplx c1, const Cmplx c2);										// ë³µì†Œìˆ˜ ëº„ì…ˆ
+Cmplx cmplxMul(const Cmplx c1, const Cmplx c2);										// ë³µì†Œìˆ˜ ê³±ì…ˆ
+Cmplx cmplxDiv(const Cmplx c1, const Cmplx c2);										// ë³µì†Œìˆ˜ ë‚˜ëˆ—ì…ˆ
+double CmpCmplx(const Cmplx c1, const Cmplx c2);									// ë³µì†Œìˆ˜ ë¹„êµ í•¨ìˆ˜
 
-// Á¤·Ä
-void quickSortCmplx(Cmplx* cmplxs, int SIZE); // ÄüÁ¤·Ä ÃÖÃÊÇÔ¼ö
-void quickSort(Cmplx* cmplxs, int SIZE, int left, int right); // ÄüÁ¤·Ä º»ÇÔ¼ö
-int _partition(Cmplx* cmplxs, int SIZE, int left, int right, int P_I); //ÆÄÆ¼¼Ç À§Ä¡°ª ¹İÈ¯
+// ì •ë ¬
+void quickSortCmplx(Cmplx* cmplxs, int SIZE); // í€µì •ë ¬ ìµœì´ˆí•¨ìˆ˜
+void quickSort(Cmplx* cmplxs, int SIZE, int left, int right); // í€µì •ë ¬ ë³¸í•¨ìˆ˜
+int _partition(Cmplx* cmplxs, int SIZE, int left, int right, int P_I); //íŒŒí‹°ì…˜ ìœ„ì¹˜ê°’ ë°˜í™˜
 
 #endif // CMPLX_H
